@@ -44,5 +44,5 @@ git clone https://github.com/magedu-python24/homework.git
 登录github 点击右上方的Accounting，再点击settings图标 选择 SSH and GPGkeys， 点击 New SSH key 在出现的界面中填写SSH key的名称，填一个你自己喜欢的名称即可 然后将上面拷贝的cat ~/.ssh/id_rsa.pub 出现的内容，粘贴到key一栏，在点击“Add SSH key”按钮就可以了。 添加过程github会提示你输入一次你的github密码 添加完成后再次执行git clone就可以成功克隆github上的代码库了。
 ```
 ### 2. windows：
-安装视频和文件已经上传群共享
+安装视频和文件已经上传群共享。
 
