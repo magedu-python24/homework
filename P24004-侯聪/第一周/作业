@@ -1,0 +1,47 @@
+1. Linux 发行版本有哪些
+基於Dpkg (Debian系)
+
+商業發行版
+
+    Ubuntu，一个非常流行的桌面发行版，由Canonical维护。
+
+社群發行版
+
+    Debian，一个强烈信奉自由软件，并由志愿者维护的系统。
+    Kubuntu, 使用KDE桌面的Ubuntu。
+    Linux Mint，从Ubuntu衍生并与Ubuntu兼容的系统。
+    Knoppix，第一个Live CD发行版，可以从可移动介质运行，Debian的衍生版。
+    OpenGEU，Ubuntu的衍生版。
+    Elementary OS：基於Ubuntu，介面酷似Mac OS X。
+    gOS和其他上网本用的系统。
+
+基於RPM (Red Hat系)
+
+商業發行版
+
+    Red Hat Enterprise Linux，Fedora的商业版，由Red Hat维护和提供技术支持。
+    openSUSE，最初由Slackware分离出来，现在由Novell维护。
+
+社群發行版
+
+    Fedora，是Red Hat的社区版，会经常引入新特性进行测试。
+    PCLinuxOS，Mandriva的衍生版本，由社区维护的非常流行的发行版。
+    CentOS，从Red Hat发展而来的发行版，由志愿者维护，旨在提供开源的，并与Red Hat 100%兼容的系统。
+    Mageia，从Mandriva发展而来的发行版。
+
+2. 按要求写出执行命令
+a. 使用zhangsan用户通过ssh的22端口登录服务器 192.168.139.100
+    ssh zhangsan@192.168.139.100
+b. 在系统根目录下创建目录data
+    mkdir /data
+c. 在data中新建a.sh文件
+    cd /data
+    vi a.sh
+d. 在a.sh文件中写入内容 echo "hello magedu"
+    echo "hello magedu" > /data/a.sh
+e. 查看文件内容
+    cat /data/a.sh
+f. 删除在步骤b中创建的data目录
+    rm -rf /data
+g. 退出ssh 登录
+    logout
