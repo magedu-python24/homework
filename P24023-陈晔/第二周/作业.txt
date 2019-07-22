@@ -1,0 +1,12 @@
+a、ssh zhangsan@192.168.139.100
+   输入账户名和密码
+b、sudo mkdir /data
+c、sudo touch /data/a.sh
+d、su
+   输入密码进入root账户
+   cat >/data/a.sh <<END
+   echo "hello magedu"
+   END
+e、cat /data/a.sh
+f、rm -rf /data
+g、exit
