@@ -1,0 +1,8 @@
+a='每天看视频'
+b=int(input('请输入一个整数'))
+c='小时'
+d='为中华之崛起而读书！'
+for i in range(100)
+     if i>=0:
+         print (d)
+         print (a,b,c)
