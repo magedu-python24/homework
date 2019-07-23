@@ -1,0 +1,9 @@
+1. linux distrubution
+redhat, centos, debian, ubuntu, suse, arch and so on.
+2. executeing commands as below
+	a. ssh zhangsan@192.168.139.100 -p 22
+	b. mkdir -pv /data
+	c. touch /data/a.sh
+	d. echo "hello magedu" > /data/a.sh
+	f. rm -rf /data
+	g. exit
