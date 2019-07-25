@@ -7,3 +7,5 @@ redhat, centos, debian, ubuntu, suse, arch and so on.
 	d. echo "hello magedu" > /data/a.sh
 	f. rm -rf /data
 	g. exit
+
+
