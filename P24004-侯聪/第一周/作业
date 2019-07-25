@@ -36,7 +36,7 @@ b. 在系统根目录下创建目录data
     mkdir /data
 c. 在data中新建a.sh文件
     cd /data
-    vi a.sh
+    touch a.sh
 d. 在a.sh文件中写入内容 echo "hello magedu"
     echo "hello magedu" > /data/a.sh
 e. 查看文件内容
