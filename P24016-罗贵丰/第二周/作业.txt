@@ -1,5 +1,15 @@
 本周作业
 1.通过本周的学习和自己查阅，你知道linux有哪些发行版本？
+Linux的发行版众多，其中使用最为普遍的有以下这几个：
+    1）Fedora Core
+    2) Debian
+    3) Mandrake
+    4) Ubuntu
+    5) Red Hat Linux
+    6) SuSE
+    7) Linux Mint
+    8) Gentoo
+    9) CentOS
 2.按以下需求写出对应的执行命令：
   a.使用zhangsan用户通过ssh的22端口登入服务器192.168.139.100
   b.在系统根目录下创建目录data
