@@ -8,7 +8,7 @@ while True:
     y = int(input("Input the Second Number>>>"))
 
     if cs == "+":
-        print(x,"+",y,+"=",x+y)
+        print(x,"+",y,"=",x+y)
     elif cs == "-":
         print(x,"-",y,"=",x-y)
     elif cs == "*":
