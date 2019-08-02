@@ -1,0 +1,57 @@
+1.Python的垃圾回收机制
+	Python是通过引用计数来进行垃圾回收的。当引用计数为0时，会被回收。对象被创建，被引用，作为传参，作为元素引用计数会增加。该对象被销毁，被重新赋值，从容器中删除时引用计数会减少。
+
+2.斐波那契数列:从第三项开始，每一项都等于前两项之和。
+  素数:一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做素数；否则称为合数。
+  质数:质数又称素数
+  猴子偷桃:前一天的桃子数量为当前桃子数量加一的两倍
+
+3.使用列表的方法
+	list()  返回一个新的空列表
+	list(iterable)  返回一个元素为可迭代对象展开的新列表
+	index(value[start[stop]]) 返回从指定区间第一个匹配到value的索引，匹配不到抛出异常
+	count(value)  返回匹配到value的次数
+	len()  返回列表长度
+	append(object)  返回None 在尾部追加元素，就地修改
+	insert(index，object) 返回None 在索引处插入元素，就地修改  索引超界不报错
+	extend(iterable)  返回None 追加可迭代元素，就地修改
+	+  返回新列表 将两个列表连接
+	*  将元素重复n次，返回新裂表(注意复杂类型)
+	remove(value)  返回None  删除从左至右第一个匹配value的值，就地修改
+	pop([index]) 返回从索引处弹出的的值 超界报错 不指定index弹出最后一个
+	clear() 返回None 清除列表元素
+	reverse() 返回None 将列表元素反转，就地修改
+	sort() 返回None 将列表元素排序，就地修改，默认升序
+	列表复制
+
+4.简易计算器
+
+while True:
+    num1 = input('plase input first num or ENTER exit: ')
+    if not num1:
+        print('exit')
+        break
+    else:
+        num1 = int(num1)
+    f = input('plase input +/-/*/\/: ')
+    num2 = int(input('plase input seond num: '))
+
+    if f=='+':
+        value = num1+num2
+    elif f=='-':
+        value = num1-num2
+    elif f=='*':
+        value = num1*num2
+    elif f=='/':
+        if num2 == 0:
+            print('err and exit')
+            break
+        else:
+            value = num1/num2
+    else:
+        print('err')
+    print(value)
+
+
+
+
