@@ -24,6 +24,7 @@ Linux的发行版众多，其中使用最为普遍的有以下这几个：
   echo "hello magedu" > /data/a.sh
   
   e.查看文件内容
+  cat /data/a.sh
   
   f.删除在b步骤中创建的data目录
   rm -rf /data
