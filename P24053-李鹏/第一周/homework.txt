@@ -1,0 +1,10 @@
+1. 通过本周的学习和自己查阅，你知道linux有哪些发行版本？
+      - centos redhat ubuntn Debian等
+
+2. a - ssh zhangsan@192.168.139.100 -p 22
+   b - mkdir /data
+   c - touch /data/a.sh
+   d - echo "hello magedu" > /data/a.sh
+   e - cat /data/a.sh
+   f - rm -rf /data
+   g - exit
