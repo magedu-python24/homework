@@ -1,0 +1,42 @@
+1. 简要说明Python垃圾回收机制
+     
+
+    Python GC主要使用引用计数（reference counting）来跟踪和回收垃圾。在引用计数的基础上，通过“标记-清除”（mark and sweep）解决容器对象可能产生的循环引用问题，通过“分代回收”（generation collection）以空间换时间的方法提高垃圾回收效率。
+
+2. 什么是斐波那契数列、素数、质数和猴子吃桃问题（文字说明即可）？
+    斐波那契数列：1,1,2,3,5,8,13,21。。。。
+    素数：只能被自己和本身整除。
+    猴子吃桃问题：
+       猴子第一天摘了若干个桃子，当即吃了一半，还不解馋，又多吃了一个；第二天，吃剩下的桃子的一半，还不过瘾，又多吃了一个；以后每天都吃前一天剩下的一半多一个，到第10天想再吃时，只剩下一个桃子了。问第一天共摘了多少个桃子？
+3. 请写出列表支持的所支持增加一个元素
+       list.append  列表后面增加一个元素
+       list.extend  列表后面增加一个可以迭代对象
+       list.pop()   提出一个末尾一个元素,返回这个值。
+       list.pop(x)  剔除索引号为X的元素，并返回这个值。
+       list.insert(x,y) 在索引号是X的地方，插入一个Y值
+       list.reverse() 反转
+       list.sort()排序
+       list.remove（x)去掉值为X的元素
+
+
+            
+4. 实现一个简易的计算器，效果如下：
+    （1）. 运行后提示让用户输入一个数字
+    （2）. 提示输入操作符（+ - * /）
+    （3）. 再次提示输入一个数字
+    （4）. 打印计算结果
+    （5）. 在不退出程序的前提下，可以允许用户继续输入新一组数据计 
+flag=True
+while flag:
+    Num1=int(input('please enter Num1:'))
+    m=input('please enter the caculation symbol:')
+    Num2=int(input('please enter Num2:'))
+    if m =='+':
+        print(Num1+Num2)
+    elif m =='-':
+        print(Num1-Num2)
+    elif m =='*':
+        print(Num1*Num2)
+    else:
+        
+        print(Num1/Num2)
