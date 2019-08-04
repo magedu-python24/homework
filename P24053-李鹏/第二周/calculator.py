@@ -1,5 +1,5 @@
 # v-1
-# 待优化的问题：实现用户退出程序；被除数
+# 待优化的问题：实现用户退出程序；被除数不为0的特殊处理
 while True:
     operator = ('+', '-', '*', '/')
     a = int(input('please input number:'))
