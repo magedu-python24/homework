@@ -1,0 +1,62 @@
+1.简要说明Python垃圾回收机制
+采用Cpython解释器自带的垃圾回收机制，计数机制，辅以分代回收机制和标记—清除机制。
+计数机制：举例说明一下，变量创建后，就会有相应的引用，每当有心底的对象引用时，引用计数就加一，
+                反之，每次对象的引用销毁后，引用计数就会减一，当引用计数的值变成0时，就代表没有
+	引用了，自然就可以回收了。
+分代回收机制和标记—清除机制：这两种的机制可以回收引用计数回收不了的循环引用。
+	分代的算法：新生代总是容易消亡，老年代反而存活更久。新产生的容易销毁，而存活了几个
+	循环的老年代反而更不易销毁，也就是能存在更久。
+2. 什么是斐波那契数列、素数、质数和猴子吃桃问题（文字说明即可）？
+斐波那契数列：1， 1， 2， 3， 5， 8， 13， 21，，，后一项为前两项的和
+素数：大于1 的自然数中仅能被它本身和1整除的数
+质数：同上，是素数的别称
+猴子吃桃问题：知道了猴子那一天吃完的，最后一天吃了多少，再结合猴子吃桃的规律，我们总能够计算出前一天猴子有多少桃子，
+	不断的往前递推，就能知道猴子一共有多少桃子。循环每天的桃子变化，以及天数的变化就能找到那个正确结果。
+3.请写出列表支持的所有方法及说明（例如: append 向列表末尾添加元素）
+list.index(self, object, start, stop)	# 在一定范围内查找元素的下标
+list.pop(self, object)		# 删除指定下标的内容，若不指定，则删除最后一个元素
+list.append(self, object)	# 在末尾添加指定元素
+list.remove(self, object)	# 仅能删除查到的第一个指定元素
+list.count(self, object)	# 返回同一个元素出现的次数
+list.clear(self)		# 清空列表
+list.copy(self)		# 复制列表
+list.extend(self, interable)	# 合并列表至当前列表
+list.insert(self, index, object)	# 指定位置添加元素，当前位置的元素后移
+list.reverse(self)		# reverse是反转list，正序变成倒叙，但不输出结果
+list.sort(self, key, reverse)	# 正序排列元素，若list里存在str和int类型的组合，则无法进行排序。
+			加reverse=True,就是倒叙排列
+4. 实现一个简易的计算器，效果如下：
+    （1）. 运行后提示让用户输入一个数字
+    （2）. 提示输入操作符（+ - * /）
+    （3）. 再次提示输入一个数字
+    （4）. 打印计算结果
+    （5）. 在不退出程序的前提下，可以允许用户继续输入新一组数据计 
+print(欢迎使用计算器！输入为不合法时结束计算！请按提示操作！)
+a = 0
+b = (+, -,* ,/)
+while True
+    if a == 0
+        result = int(input(请输入数字：))
+    operator = input(请输入操作符：)     # 用来计算的操作符
+    number_two = int(input(请输入数字：))
+
+    if operator not in b       # 判断输入是否正确合法，若不合法退出计算
+        break
+    if operator == +
+        result += number_two
+        print(结果为：, result)
+        a = 1
+    elif operator == -
+        result -= number_two
+        a = 1
+        print(结果为：, result)
+    elif operator == *
+        result = number_two
+        a = 1
+        print(结果为：, result)
+    elif operator == /
+        result = number_two
+        a = 1
+        print(结果为：, result)
+    else
+        break

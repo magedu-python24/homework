@@ -1,0 +1,9 @@
+1. Ubuntu¡¢Centos¡¢Linux Mint¡¢openSUSE
+
+a: ssh  192.168.139.100
+b£ºmkdir /data
+c£ºtouch /data/a.sh
+d£ºecho "hello magedu" > a.sh
+e£ºcat /data/a.sh
+f£ºrm -rf /data
+g£ºexit
