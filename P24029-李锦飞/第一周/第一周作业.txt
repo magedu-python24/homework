@@ -1,0 +1,18 @@
+一、LINUX发行版：
+1、RedHat
+2、Debian
+3、Centos
+4、Suse
+5、Ubuntu
+6、Fedora
+
+二、命令操作
+a、ssh登录：ssh 192.168.139.100:22
+b、cd ~ 
+   mkdir data
+c、cd data
+   touch a.sh
+d、echo "hello magedu" >a.sh
+e、vim a.sh
+f、rm -rf data
+g、exit
