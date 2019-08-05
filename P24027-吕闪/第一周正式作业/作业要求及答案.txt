@@ -47,3 +47,6 @@ Python开发之运维基础(三)：
   e: cat > a.sh
   f: rm -rf /data
   g: logout
+  
+  
+  
