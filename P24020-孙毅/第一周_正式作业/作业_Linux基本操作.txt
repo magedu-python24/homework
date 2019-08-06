@@ -1,0 +1,44 @@
+
+
+作业链接：
+作业.note
+链接：http://note.youdao.com/noteshare?id=7fa4e42dc77d8af972023550d32465a8&sub=E8B4E9A10E04469FA66A1DB912862E32
+
+
+1. 通过本周的学习和自己查阅，你知道linux有哪些发行版本？
+
+Linux的发行版本可以大体分为两类
+一类是商业公司维护的发行版本:著名的Redhat（RHEL）
+一类是社区组织维护的发行版本:Debian
+
+主流的Linux发行版：Ubuntu， DebianGNU/Linux ，Fedora，Gentoo，MandrivaLinux ，PCLinuxOS，SlackwareLinux ，openSUSE，ArchLinux，Puppylinux，Mint,CentOS,Red Hat，kali等。
+大陆发行版：中标麒麟Linux(原中标普华Linux)， 红旗Linux(Red-flag Linux) ，起点操作系统StartOS(原Ylmf OS)，Qomo Linux(原Everest)，冲浪Linux(Xteam Linux) ，蓝点Linux ，新华Linux ，共创Linux ，百资Linux，veket,lucky8k-veket.Open Desktop ，Hiweed GNU/Linux ，Magic Linux ，Engineering Computing GNU/Linux ，kylin，中软Linux，新华华镭Linux(RaysLX) ，CD Linux ，MC Linux，即时Linux(Thizlinux) ，b2d linux ，IBOX ，MCLOS，FANX，酷博linux，新氧Linux，Hiweed，Deepin Linux（深度linux）。其中CD linux可方便集成一些无线安全审计工具，及较好的中文界面和体积小巧的特点。另外新氧、Hiweed基于ubuntu（都已停止更新），Deepin Linux是Hiweed与深度合并后的版本，已成为中国linux的后起之秀。
+
+
+2. 按以下需求写出对应的执行命令：
+   a. 使用zhangsan用户通过ssh的22端口登录服务器192.168.139.100
+ssh -p 22 zhangsan@192.168.139.100
+
+   b. 在系统根目录下创建目录 data
+cd ~root
+mkdir data
+
+   c. 在data中新建a.sh 文件
+cd data 
+touch a.sh
+
+   d. 在a.sh 中写入内容echo "hello magedu"
+touch a.sh
+nano a.sh 
+echo "hello magedu"
+
+c\d合并一步
+echo "echo \"hello magedu\"">a.sh
+
+   e. 查看文件内容
+cat a.sh
+   f. 删除在 b 步骤中创建的 data 目录
+rm -r data
+
+   g. 退出ssh登录 
+exit

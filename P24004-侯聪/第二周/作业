@@ -1,0 +1,60 @@
+1. 简要说明Python垃圾回收机制
+Pyton主要是用计数变量的方式进行垃圾回收，内存中的对象被调用一次计数为1 调用N次计数为N。当计数为0的时候表明该对象没有被调用 这时候
+Python将进行该对象的内存回收。
+
+2. 什么是斐波那契数列、素数、质数和猴子吃桃问题（文字说明即可）？
+斐波那契数列： 有规律的数列，数列的前两项为 1 1 后面从第三项开始该项的值为 前两项相加的和 故 F（n）= F（n-1）+F（n-2）
+素数：也叫质数 大于1的自然数 除了1和本身外 不能整除任何数
+猴子吃桃：
+/*有一群猴子，去摘了一堆桃子*/
+
+/*商量之后决定每天吃剩余桃子的一半*/
+
+/*当每天大家吃完桃子之后，有个贪心的小猴都会偷偷再吃一个桃子*/
+
+/*按照这样的方式猴子们每天都快乐的吃着桃子*/
+
+/*直到第十天，当大家再想吃桃子时，发现只剩下一个桃子了*/
+
+3. 请写出列表支持的所有方法及说明（例如: append 向列表末尾添加元素）
+list.append() 列表尾部添加元素
+list.count( ）统计列表中某元素的个数
+list.insert(index,value）index处插入元素
+list.remove(）左开始移除第一个等于括号内的元素
+list.clear(）清空列表
+list.extend(）尾部扩展列表括号内为可扩展对象
+list.reverse()反转列表倒序输出
+list.copy(）复制列表并开辟新的内存空间
+list.index(）查找元素的索引 从左到右
+list.pop(）弹出末尾元素并返回元素的值
+list.sort(）按照ASSIC码对列表进行排序
+
+4. 实现一个简易的计算器，效果如下：
+
+    （1）. 运行后提示让用户输入一个数字
+
+    （2）. 提示输入操作符（+ - * /）
+
+    （3）. 再次提示输入一个数字
+
+    （4）. 打印计算结果
+
+    （5）. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+
+while True:
+    x = int(input("Input the First Number>>>"))
+    cs = input ("Input the Calculating signs>>>")
+    list = ['+','-','*','/']
+    if cs not in list:
+        print("The Calculation signs U input is not Correct!!!!")
+        continue
+    y = int(input("Input the Second Number>>>"))
+
+    if cs == "+":
+        print(x,"+",y,"=",x+y)
+    elif cs == "-":
+        print(x,"-",y,"=",x-y)
+    elif cs == "*":
+        print(x,"*",y,"=",x*y)
+    else :
+        print(x,"/",y,"=",x/y)
