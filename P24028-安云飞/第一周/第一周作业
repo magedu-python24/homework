@@ -1,0 +1,17 @@
+1.linux发行版：
+    Debian
+    Ubuntu
+    Linux mint
+    SUSE
+    openSUSE
+    kali
+    Redhat enterprise Linux
+    CentOS
+2.
+    a. ssh zhangsan@192.168.139.100
+    b. mkdir /data
+    c. touch /data/a.sh
+    d. echo "hello magedu" > /data/a.sh
+    e. cat filename
+    f. rm /data && rmdir /data
+    g. exit

@@ -1,0 +1,11 @@
+1. 通过本周的学习和自己查阅，你知道linux有哪些发行版本？
+答：redhat, centos, debian, ubuntu, arch 
+2. 按以下需求写出对应的执行命令：
+ssh zhangsan@192.168.139.100 -p 22	使用zhangsan用户通过ssh的22端口登录服务器192.168.139.100
+mkdir data       		在系统根目录下创建目录 data
+cd data 			进入data文件
+touch a.sh			新建文件a.sh
+echo "hello magedu" > a.sh	在a.sh 中写入内容echo "hello magedu"
+cat a.sh			查看文件内容
+rm -r data			删除
+exit			退出
