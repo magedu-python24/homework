@@ -1,13 +1,100 @@
-str = "123"
-str1.capitalize(   str1.isalpha(      str1.ljust(        str1.split(
-str1.casefold(     str1.isascii(      str1.lower(        str1.splitlines(
-str1.center(       str1.isdecimal(    str1.lstrip(       str1.startswith(
-str1.count(        str1.isdigit(      str1.maketrans(    str1.strip(
-str1.encode(       str1.isidentifier( str1.partition(    str1.swapcase(
-str1.endswith(     str1.islower(      str1.replace(      str1.title(
-str1.expandtabs(   str1.isnumeric(    str1.rfind(        str1.translate(
-str1.find(         str1.isprintable(  str1.rindex(       str1.upper(
-str1.format(       str1.isspace(      str1.rjust(        str1.zfill(
-str1.format_map(   str1.istitle(      str1.rpartition(
-str1.index(        str1.isupper(      str1.rsplit(
-str1.isalnum(      str1.join(         str1.rstrip(
+# 思路：
+# 找出列表中最大的值 然后将该值 移动到末尾 该位置的值替换为末尾的值
+# pop 列表 将该值传到另外列表1中
+# 找出列表中最大的值 然后将该值 移动到末尾 该位置的值替换为末尾的值
+# pop 列表 将该值传到另外列表1中
+# 找出列表中最大的值 然后将该值 移动到末尾 该位置的值替换为末尾的值
+# pop 列表 将该值传到另外列表1中
+# 。
+# 。
+# 。
+# 。
+
+
+
+# list1 = [3, 5, 1, 7, 9, 6, 8]
+# list2 = []
+#
+# while list1:
+#     LarNum = list1[0]
+#     LarNumInd = 0
+#     for i in range(1,len(list1)):
+#         if list1[i] > LarNum:
+#             LarNum = list1[i]
+#             LarNumInd = list1.index(LarNum)
+#     list1[LarNumInd] = list1[-1]
+#     list1[-1] = LarNum
+#     list1.pop()
+#     list2.append(LarNum)
+#
+# list2.reverse()
+# print("重新排列后的数组为：")
+# print(list2)
+#
+
+
+logs = '''
+
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200
+
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200
+
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200
+
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200
+
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200
+
+'''
+
+# PostNum = 0
+# GetNum = 0
+# ListLog = logs.splitlines()
+# for i in ListLog:
+#     if len(i) < 1:
+#         ListLog.remove(i)
+# ListLog.pop()
+# print(ListLog)
+#
+# for str in ListLog:
+#     print(str)
+#     LogSplit = str.split()
+#     print(LogSplit)
+#     print(LogSplit[1])
+#     ActionType = LogSplit[1]
+#     ActionType = ActionType.lower()
+#     print(ActionType)
+#     if "post" in ActionType:
+#         PostNum += 1
+#     else:
+#         GetNum += 1
+# print("POST ",PostNum)
+# print("GET ",GetNum)
+#
+# str = '111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200'
+#
+# LogSplit = str.split()  #['111.30.144.7', '"POST', '/mock/login/?t=GET', 'HTTP/1.1"', '200']
+# Type = LogSplit[1].lower() #"post
+# if "post" in Type:
+#     print("POST")
+# else:
+#     print("Get")
+
+PostNum = 0
+GetNum = 0
+ListLog = logs.splitlines()
+for i in ListLog:
+    if len(i) < 1:
+        ListLog.remove(i)
+ListLog.pop()
+
+for str in ListLog:
+    LogSplit = str.split()
+    ActionType = LogSplit[1]
+    ActionType = ActionType.lower()
+    if "post" in ActionType:
+        PostNum += 1
+    else:
+        GetNum += 1
+print("POST ",PostNum)
+print("GET ",GetNum)
