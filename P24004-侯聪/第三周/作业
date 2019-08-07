@@ -1,0 +1,72 @@
+1. 说明列表的浅拷贝和深拷贝的区别
+浅拷贝是指新变量和旧变量内容指向相同的内存地址，深拷贝是新变量会重新扩展一块内存存放内容，该内容与原来变量值相同。
+
+2. 说明列表和元组的相同点和不同点
+相同点 ： list 与 tuple 都是序列类型的容器对象，可以存放任何类型的数据、支持切片、迭代等操作
+不同点：元组存放的元素唯一不能相同 而列表可以存放相同的元素 即tuple是不可变类型，大小固定，而 list 是可变类型、数据可以动态变化
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+lower 返回字符串的小写
+upper 返回字符串的大写
+tile 返回所有首字母大写 其它字母小写
+capitalize 返回第一个单词首字母大写 其余小写
+swapcase 对字符串中的所有大小写字母进行互换 （大写变小写 小写变大写）
+
+isdecimal 判断是否为数字
+isapha 判断是否为字母
+isalnum 判断是否为字母数字组合
+
+islower 判断是否为小写字母
+isupper 判断是否为大写字母
+istitle 判断单词全部首字母大写
+
+isspace 判断是否为空白
+isprintable 判断是否可打印
+isidentifier 判断是否满足标识符规则
+
+center(width[, fillchar]) 将字符串居中 左右两边使用fillchar进行填充 默认使用空格填充
+>>> print('ab'.center(4,'_'))
+_ab_
+
+ljust(width[, fillchar]) 左对齐字符串 右边用fillchar填充
+>>> print('xyz'.ljust(5,'_'))
+xyz__
+
+rjust(witdth[,fillchar]) 右对齐字符串 左侧用fillchar填充
+>>> print('xyz'.rjust(5,'_'))
+__xyz
+
+zfill(width) 用0填充在字符串的左边使其满足长度 witdth
+>>> print('abc'.zfill(5))
+00abc
+
+count(sub[, start[, end]]) 返回字符串中出现子串sub的次数 可以指定索引的开始以及终止位置
+>>> print('xyabxyxy'.count('xy',1,7))
+1
+
+endswith(suffix[, start[, end]]) 检查字符串是否以suffix结尾
+startswith(prefix[, start[, end]]) 检查字符串是否以prefix开始
+
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+
+POST 2
+
+GET 3
+
+下边是logs变量：
+logs = '''
+
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200
+
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200
+
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200
+
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200
+
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200
+
+'''
