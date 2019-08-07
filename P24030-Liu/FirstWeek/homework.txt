@@ -1,0 +1,9 @@
+1. Redhat CentOS Fedora
+2.
+	a. ssh zhangsan@192.168.139.100
+	b. mkdir /data
+	c. touch /data/a.sh
+	d. echo "hello magedu" > /data/a.sh
+	e. cat /data/a.sh
+	f. rm -f /data/a.sh
+	g. exit
