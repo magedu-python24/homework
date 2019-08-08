@@ -1,0 +1,69 @@
+【一：章节学习_笔记地址】
+5.Python环境安装与基础语法：   
+        01-Linux环境部署pyenv安装；
+        02-pyenv使用和开发环境搭建；
+https://www.jianshu.com/p/e393554cf3ae
+        03-计算机体系和语言分类；
+https://www.jianshu.com/p/9fbc77f647af
+        04-python基础和原反补码及表达式；
+https://www.jianshu.com/p/ed66c33efa7c
+        05-GC、分支、循环；
+https://www.jianshu.com/p/4dca6888c0ec
+
+【本周课程笔记链接都写简书上】
+详见简书专题地址： https://www.jianshu.com/c/f1cc5a6dbd31
+
+【二：本周作业】：请同学们把作业提交到Github哦~~
+1. 简要说明Python垃圾回收机制（JAVAs思想）
+【笔记地址详解】： https://www.jianshu.com/p/4dca6888c0ec
+答：Python内存空间是以Python私有堆的形式进行管理的。所有的Python对象和数据结构都存放在一个私有堆中。
+解释器可以访问私有堆，而程序员不可以。
+
+将Python堆空间中的内存分配给Python对象的工作是由Python内存管理器完成的。
+而内核API则会提供给程序员一些相关的工具来完成涉及到内存的编码工作
+
+当Python的某个对象的引用计数降为0时，说明没有任何引用指向该对象，该对象就成为要被回收的垃圾。
+（将最不容易变化的对象（引用计数大的对象）往一个方向移动就是JAVA的内存管理机制，没用的对象删除）
+
+2. 什么是斐波那契数列、素数、质数和猴子吃桃问题（文字说明即可）？
+	菲波那锲数列 fb（笔试/上机题）； 后一项 = 前两项的和；
+	【质数】素数：只能被1和本身整除的数；    优化点：大于10的质数；个位一定是 1,3,7,9  ；
+	猴子吃桃问题：一个猴子第一天吃掉一半桃子，第二天吃掉前一天剩下的一半零两个，第三天吃掉剩下的一半零两个，第十天只剩下一个桃子，求第一天一共吃掉多少个桃子？ 
+
+3. 请写出列表支持的所有方法及说明（例如: append 向列表末尾添加元素）
+	【详见笔记地址】：https://www.jianshu.com/p/91f6ef501b57
+4. 实现一个简易的计算器，效果如下：
+    （1）. 运行后提示让用户输入一个数字
+    （2）. 提示输入操作符（+ - * /）
+    （3）. 再次提示输入一个数字
+    （4）. 打印计算结果
+    （5）. 在不退出程序的前提下，可以允许用户继续输入新一组数据计 
+###计算器的实现：
+```
+flag = True
+while flag:
+    num1 = int(input('输入first number:'))
+    choice = input('输入操作符（+ - * /）:')
+    num2 = int(input('输入second number:'))
+
+    if choice == '+':
+       print(num1,"+",num2,"=", num1+num2)
+
+    elif choice == '-':
+       print(num1,"-",num2,"=", num1-num2)
+
+    elif choice == '*':
+       print(num1,"*",num2,"=", num1*num2)
+
+    elif choice == '/':
+       print(num1,"/",num2,"=", num1/num2)
+
+    else:
+       print("非法输入")
+    print('是否继续使用计算？')
+    idea = input('>>>')
+    if idea == 'Y' or idea == 'y':
+        continue
+    else:
+        flag = False
+```
