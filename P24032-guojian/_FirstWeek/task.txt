@@ -1,0 +1,11 @@
+task:
+1.linux有哪些发行版本？
+RedHat,SUSE,Dbian,CentOS,ubuntu,android
+2. 按以下需求写出对应的执行命令：
+   a. ssh zhangsan@192.168.139.100 -p 22
+   b. mkdir /data
+   c. touch /data/a.sh
+   d. echo "hello magedu" > /data/a.sh
+   e. cat /data/a.sh
+   f. rm -r /data
+   g. exit 

@@ -1,0 +1,138 @@
+1.说明列表的浅拷贝和深拷贝的区别
+    浅拷贝只是拷贝列表里面的元素，不会拷贝列表内元素所指向的对象。深拷贝是将列表元素和元素所指的对象全部拷贝。
+
+2.说明列表和元组的相同点和不同点
+    相同点：都是线性数据结构，元素有顺序可以使用索引，元素可以是任意对象，元素都可以查询。
+    不同点：列表用[]，元组用()。列表元素可变，元组不可变。列表有增、改、删方法，元组没有。
+
+3.请写出字符串支持的所有方法及说明
+    1.下标访问，可迭代
+    2."string".join(iterable) ->str
+        将可迭代对象用"string"连接起来，返回新字符串。可迭代对象本身必须都是字符串。
+    3.+ ->str 将两个字符串连接起来返回新字符串。
+    4..split(sep=None,maxsplit=-1) -> 字符串列表
+        从左向右将字符串用sep分隔字符串，返回字符串列表。当sep不指定时分割符为空白字符。maxsplit指定分割次数，-1表示遍历整个字符串。
+    5..rsplit(sep=None,maxsplit=-1) -> 字符串列表
+        和split一样，rsplit是从右至左。
+    6..splitlines([keepends]) -> 字符串列表
+        按照行分隔符切分字符串，返回字符串列表，keepends指是否保留行分隔符。\n、\r、\r\n
+    7..partition(sep) ->(head,sep,tail)三元组
+        从左至右遇到分隔符，将字符串分为两部分，返回头、分隔符、尾三元组。如果没有找到分割符，就返回头、2个空元素的三元组。sep必须指定。
+    8..upper() 将字符串转换为全部大写，返回新字符串
+    9..lower() 将字符串转换为全部小写，返回新字符串
+    10..swapcase() 将字符串大写转小写小写转大写，返回新字符串
+    11..replace(old,new,[count]) ->str
+        在字符串中找到old，用new替换。count表示替换此时，不指定就全部替换。
+    12..strip([chars]) -> str
+        从字符串两端去除指定的字符集chars中的所有字符。char未指定，则去除两端空白字符。
+    13..lstrip([chars]) -> str  
+        从左边开始
+    14..lstrip([chars]) -> str  
+        从右边开始
+    15..find(sub[start[end]]) ->int
+        在指定区间[),从左至右查找sub，找到返回索引，未找到返回-1
+    16..rfind(sub[start[end]]) ->int
+        在指定区间[),从右至左查找sub，找到返回索引，未找到返回-1
+    17..index(sub[start[end]]) ->int
+        在指定区间[),从左至右查找sub，找到返回索引，未找到抛出异常
+    18..rindex(sub[start[end]]) ->int
+        在指定区间[),从右至左查找sub，找到返回索引，未找到抛出异常
+    19..count(sub[start[end]]) ->int
+        在指定区间[),从左至右统计sub出现次数
+    20..endswith(suffix[start[end]]) ->bool
+        在指定区间[),字符串持否suffix结尾
+    21..startswith(prefix[start[end]]) ->bool
+        在指定区间[),字符串持否prefix开始
+    22.is系列
+        isalnum() ->bool 是否是字母和数字组成
+        isalpha() ->bool 是否是字母
+        isdecimal() ->bool 是否包含十进制数字
+        isdigit() ->bool 是否是全部数字
+
+        isidentifier() ->bool 是否是字母和下划线开头，其他都是字母数字下划线
+        islower() ->bool 是否是全部小写
+        isupper() ->bool 是否是全部大写
+        isspace() ->bool 是否只包含空白字符
+4.使用选择排序算法实现排序[3,5,1,7,9,6,8]
+
+#每趟找出最大值和最小值分别交换到开头和结尾
+l = [3,5,1,7,9,6,8]
+
+length = len(l)
+for i in range(length//2):
+    maxx = i
+    minx = i
+    for j in range(i+1,length-i):
+        if l[maxx] < l[j]:
+            maxx = j
+        if l[minx] > l[j]:
+            minx = j
+    if l[maxx]==l[minx]:
+        break
+
+    if l[maxx] != l[i]:
+        l[i],l[maxx] = l[maxx],l[i]
+        if minx==i:
+            minx = maxx
+    if l[minx] != l[-i-1]:
+        l[-i-1],l[minx] = l[minx],l[-i-1]
+print(l)
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：POST 2    GET 3
+
+logs = '''
+
+　
+
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+
+　
+
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+
+　
+
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+
+　
+
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+
+　
+
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+
+　
+
+'''
+
+l = logs.split('\n')
+newlist = []
+result = []
+for i in l:
+    if i == '' or i=='\u3000':
+        continue
+    else:
+        x = i.split(' ')
+        y = x[1].lower().lstrip('"')
+        newlist.append(y)
+        
+        for j,v in enumerate(result):
+            if y == v[0]:
+                result[j][1] += 1
+                break
+        else:
+            result.append([y,1])
+
+for i in result:
+    print('{0:<5}{1:<2}'.format(i[0],i[1]))
+
+
+
+
+
+
+
+
+
+
