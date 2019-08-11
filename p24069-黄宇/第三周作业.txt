@@ -1,0 +1,85 @@
+1. 说明列表的浅拷贝和深拷贝的区别
+     浅拷贝方法copy,深拷贝deepcopy,在前拷贝中如果列表元素中有特殊数据类型（比如列表），那么虽然拷贝出的列表的数据地址不一样，但是拷贝列表中的特殊数据类型的地址和原来列表中的相同。如果进行修改，原来的列表中这个原色也会被修改。
+     深拷贝后，不论元素什么数据类型，均与原列表的地址不同，修改不会影响原列表的值。
+2. 说明列表和元组的相同点和不同点
+      都是可迭代的数据类型，但是元组无法被修改，
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+
+     str.upper()   返回字符串全部大写
+     str.lower()  返回字符串全部小写
+     str.swapcase() 返回字符串大小呼唤
+     str.title()    返回字符串首字母大写
+     str.center(width)返回字符串并且在一定宽度下居中
+     str.zfill(width)  返回字符串在一定宽带下左边填0
+     str.ljust(width)  左对齐
+     str.rjust(width)  右对齐
+     str.replace(old,new,[count]) 替换元素
+     str.strip(obj)  左右两边去掉目标元素
+     str.lstrip(obj) 左边去掉目标元素
+     str.rstrip(obj）右边去掉目标元素
+     str.find(obj,[star,end]) 在一个范围内找这个元素，返回位置，找不到返回-1
+     str.count(obj,[start,end])在一个范围内找这个元素，范围重复次数
+     str.startswith(obj,[start,end])判断一个范围内额字符串是否以目标值开头。返回bool
+     str.endswith(obj,[start,end])判断一个范围内的字符串是否以目标值结尾，返回bool
+     str.split(obj) 将字符串按照目标元素分割，返回一个列表
+     str.partition(obj) 将字符串按照目标元素分割一次，返回一个元祖（part1,obj,part2)
+     
+     
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+  a=[3, 5, 1, 7, 9, 6, 8]
+for i in range(0,7):
+    p=i
+    for j in range(i,6):
+        if a[p]>a[j+1]:
+
+            p=j+1
+
+    temp=a[i]
+
+    a[i]=a[p]
+
+    a[p]=temp
+
+
+print(a)
+
+    
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+
+   logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200'''
+
+POST=0
+
+GET=0
+
+logs=logs.upper().split('\n')
+
+print(logs)
+
+for i in range(len(logs)):
+
+     if logs[i].find('POST',0,logs[i].find('/'))!=-1:
+         
+
+         POST+=1
+
+     elif logs[i].find('GET',0,logs[i].find('/'))!=-1:
+
+        GET+=1
+
+
+print('POST',POST,'\n','GET',GET)
