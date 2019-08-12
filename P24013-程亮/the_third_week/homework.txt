@@ -34,4 +34,19 @@
 	upper:所有字符大写
 	lower:所有字符小写
 	swapcase:把大小写反过来，大写的小写，小写的大写
+	titile: 每个单词的首字母大写
+	capitalize： 首个单词的首字母大写
+	zfill:字符串向右对齐，左边填充0
+	center:跟两个变量，第一个是宽度，第二个是补齐用的字符
+	ljust,rjust:左对齐和右对齐，用法和center相似
+	replace:指定要替换的新老字符及次数进行替换
+	strip:从两端抹去空白字符
+	lstrip,rstrip:从左边和右边抹去字符
+	find,rfind:从左至右和从右至左查找字符，返回索引
+	index,rindex:用法同find,rfind
+	len:返回字符长度
+	count:统计字符大字符串中出现的次数
+	endwith,startwith:判断字符串是以某字符串开头或结尾
+	format,{}{},%:字符串格式化
+	isalnum,isaplpha,isdecimal,isdigit,isidentifier,islower,isupper,isspace:用来判断字符串类型
 	
