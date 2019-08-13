@@ -11,7 +11,7 @@
 
 　
 3. 请写出列表支持的所有方法及说明（例如: append 向列表末尾添加元素）
-    说明：函数中的参数index表示下标，'xxx'表示元素，listname列表的名称，len步长
+    说明：下列方法中参数index表示下标，'xxx'表示元素，listname表示列表的名称，len表示步长
     1.初始化列表 例：listname = []
     2.追加
            用法：listname.append('xxx')  在末尾添加
