@@ -48,5 +48,6 @@
 	列表复制： b=a.copy() 浅拷贝，只拷贝引用
 			  import copy
 			  b=copy.deepcopy(a) 深拷贝会把值拷过来，原列表变化，b不变化
+	列出列表可用的所有操作：dir(a)
 
 4、计算器在本级目录的py脚本中 
