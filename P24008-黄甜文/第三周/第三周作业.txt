@@ -1,0 +1,45 @@
+1. 说明列表的浅拷贝和深拷贝的区别
+   例如A=[1,[2,3,4],5],假设B复制了A。如果修改A=[1,[7,8,9],5],看B的变化。
+   如果B跟着变了，是浅拷贝，遇到引用类型只是复制了一个引用而已，指向已存在的内存。
+   如果B没有改变，是深拷贝，复制的引用类型指向新的内存地址。
+
+2. 说明列表和元组的相同点和不同点
+   相同点：元组除了不可赋值改变，其它都和列表一样。都是可索引的、有序的、可迭代的、多类型的。
+   不同点：元组不可改变，列表可改变。
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+   （1）join： str.join(iterable) ->str ，字符串join连接，返回一个新字符串。
+   （2）split： str.split(sep=none,maxsplit=-1) ->list of strings，将字符串按照分隔符分割成若干字符串，并返回列表。sep指定分割字符串，缺省的情况下空白字符串作为分隔符，maxsplit指定分割次数，-1表示遍历整个字符串。rsplit()从右边开始切。
+   （3）加法+： 字符串+字符串，返回新的字符串。
+   （4）splitlines： str.splitlines([keepends]) ->list of strings，按照行来切分字符串，并返回列表，keepends指是否保留行分隔符，False（不保留，默认），True（保留）。行分隔符包括（\n、 \r\n、 \r等）。
+   （5）partition：将字符串按照分隔符（一定要用分割符）分割成2段，返回这2段和分隔符的元组。没有找到分割符就返回头和2个空元素的三元组。例如：“1a2a3a”.partition('a')=('1','a','2a3a')
+   （6）upper（）：全大写。
+   （7）lower（）：全小写。
+   （8）swapcase（）：交互大小写。
+   （9）字符串排版 title（）：每个首字母大写；capitalize()：首个单词大写；center(width[,fillchar]):width是打印宽度，fillchar是填充字符；zfill(width):居右，左边用0填充；ljust(width[,fillchar]):左对齐；rjust(width[,fillchar]):右对齐
+   （10）replace（old，new[,count]）:字符串中找到匹配替换为新的字符串，count表示替换几次。
+   （11）strip（[chars]）:从字符串两端去除指定字符集chars中所有的字符，从两端找，当找到不在字符集里就停下来。没有指定，去除两端空白。lstrip([chars]):左边找；rstrip([chars]):右边找.
+   （12）find（sub[,start[,end]]）->int ：在指定区间[start,end)，从左到右，查找字符串sub。找到返回索引，没找到返回-1.；rfind（sub[,start[,end]]）：从右到左找；index（sub[,start[,end]]）:与find用法一样，但是找不到会抛出异常。
+   （13）count（sub[,start[,end]）：在指定区间[start,end)，从左到右，统计字符串sub出现次数。
+   （14）endswith(suffix[,start[,end]])->bool,:在指定区间[start,end),字符串是否是suffix结尾。
+   （15）startswith(prefix[,start[,end]]):在指定区间，字符串是否是以prefix开头。
+   （16）字符串判断is系列：isalnum()->bool:是否是字母和数字组成；isalpha()是否是字母组成；isdecima()是否只包含十进制数字；isdigit()是否全部数字；isidentifier()是否字母和下划线开头，其他都是字母、数字、下划线；islower()是否全部是小写；isupper()是否全部是大写；isspace()是否只包含空白字符。
+   （17）format函数格式字符串语法：‘{}{XXX}’.format（*args,**kwargs）->str，args是位置参数，是一个元组。kwargs是关键字参数，是一个字典。花括号表示占位符。{}表示安照顺序匹配位置参数，{n}表示取位置参数索引为n的值。{XXX}表示在关键字参数中搜索名称一致的。{{}}表示打印花括号。
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+   见py文件
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+''' 
+   见py文件
+
+

@@ -11,8 +11,38 @@
 
 　
 3. 请写出列表支持的所有方法及说明（例如: append 向列表末尾添加元素）
-    1.初始化列表
-　
+    说明：下列方法中参数index表示下标，'xxx'表示元素，listname表示列表的名称，len表示步长
+    1.初始化列表 例：listname = []
+    2.追加
+           用法：listname.append('xxx')  在末尾添加
+    3.删除
+           用法：
+                1）listname.pop()   如果没有指定下标，则默认删除最后一个
+                2）listname.remove(index)    删除对应下标的元素
+                3）del listname[index]    删除对应下标的元素
+    4.查找元素所在位置
+           用法：listname.index('xxx')
+    5.统计元素的次数
+           用法：listname.count('xxx')
+　  6.反转
+           用法：listname.reverse()
+    7.插入
+           用法：
+                1）listname.insert(index, 'xxx')
+                2）listname[index] = 'xxx'
+    8.排序
+           用法：listname.sort()  该排序是按照ASCII码来进行排序的
+    9.拼接两个列表
+           用法：listname.extend(listname2)
+    10.对列表进行切片
+           用法：
+                1）全取 listname[::]
+                2）部分取 listname[index1:index2]
+                3) 按步长去 listname[index1:index2:len]
+           说明：实际操作中取不到index2下标所对应的值，即所谓的顾头不不顾尾
+    11.复制
+           用法：listname.copy() 也可以使用上面的切片中的全取操作
+
 4. 实现一个简易的计算器，效果如下：　
     （1）. 运行后提示让用户输入一个数字　
     （2）. 提示输入操作符（+ - * /）　

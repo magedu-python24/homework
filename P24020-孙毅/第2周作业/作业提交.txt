@@ -39,7 +39,11 @@ https://www.jianshu.com/p/4dca6888c0ec
     （4）. 打印计算结果
     （5）. 在不退出程序的前提下，可以允许用户继续输入新一组数据计 
 ###计算器的实现：
+<<<<<<< HEAD
 ```
+=======
+
+>>>>>>> 60e8caa6414ed0afd0c9580e9f9f95593dd21c67
 flag = True
 while flag:
     num1 = int(input('输入first number:'))
@@ -65,5 +69,9 @@ while flag:
     if idea == 'Y' or idea == 'y':
         continue
     else:
+<<<<<<< HEAD
         flag = False
 ```
+=======
+        flag = False
+>>>>>>> 60e8caa6414ed0afd0c9580e9f9f95593dd21c67
