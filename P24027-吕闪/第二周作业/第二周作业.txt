@@ -139,24 +139,25 @@ def divide(x, y):
     return x / y  #定义相除
 
 
-num1 = float(input('请输入第一个数字'))
-num2 = float(input('请输入第二个数字'))
-choice = input("输入你的选择(1/2/3/4):")
 
-if choice == '1':
-    add_value = add(num1,num2)
-    print(num1,"+",num2,"=", "{:.3}".format(add_value)) 
-elif choice == '2':
-    subtract_value = subtract(num1,num2)
-    print(num1,"-",num2,"=","{:.3}".format(subtract_value))
-elif choice == '3':
-    multiply_value = multiply(num1,num2)
-    print(num1,"*",num2,"=", "{:.3}".format(multiply_value))
-elif choice == '4':
-    divide_value = divide(num1,num2)
-    print(num1,"/",num2,"=", "{:.3}".format(divide_value))
-else:
-    print("输入数据格式不正确")
+while True:
+    num1 = float(input('请输入第一个数字'))
+    num2 = float(input('请输入第二个数字'))
+    choice = input("输入你的选择(1/2/3/4):")
+    if choice == '1':
+        add_value = add(num1,num2)
+        print(num1,"+",num2,"=", "{:.3}".format(add_value)) 
+    elif choice == '2':
+        subtract_value = subtract(num1,num2)
+        print(num1,"-",num2,"=","{:.3}".format(subtract_value))
+    elif choice == '3':
+        multiply_value = multiply(num1,num2)
+        print(num1,"*",num2,"=", "{:.3}".format(multiply_value))
+    elif choice == '4':
+        divide_value = divide(num1,num2)
+        print(num1,"/",num2,"=", "{:.3}".format(divide_value))
+    else:
+        print("输入数据格式不正确")
 	
 	
 

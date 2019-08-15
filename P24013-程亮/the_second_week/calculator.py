@@ -16,4 +16,3 @@ while True:
 		print('result is',int(a)-int(b))
 	else:
 		print('operator is wrong, please try again.')
-	del a

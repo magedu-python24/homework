@@ -1,0 +1,29 @@
+本周作业
+一.通过本周学习和自己查阅，目前linux主流发行版本如下：
+	1.ubuntu
+	2.suse
+	3.deban
+	4.centos
+	5.redhat
+	
+二.按以下要求写出对应的执行命令：
+	1.使用zhangsan用户通过ssh的22端口登录服务器192.168.139.100
+		ssh -p22 zhangsan@192.168.139.100
+	
+	2.在系统根目录下创建目录data
+		mkdir /data
+		
+	3.在data中新建a.sh文件
+		touch /data/a.sh
+		
+	4.在a.sh中写入内容echo 'hello magedu'
+		echo 'echo "hello magedu"' > data/a.sh
+		
+	5.查看文件内容
+		cat data/a.sh
+		
+	6.删除在步骤2中创建的data目录
+		rm -rf data/
+		
+	7.退出ssh登录
+		exit
