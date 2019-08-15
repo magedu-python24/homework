@@ -1,0 +1,84 @@
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+杨辉三角：
+由数字排列而成的三角形
+共有N行
+第一行始终为1
+第二行为 1 2 1
+其余行的起始位置和末尾均为数字1
+其余位的值为上一行相邻的数值相加得到 即 Sn[i] = (Sn-1)[i-1] + (Sn-1)[i]
+2. 说明列表和Set集合的相同点和不同点。
+
+转置矩阵：
+矩阵第一个数字不变
+转置后 第一列的数字变成第一排 第N列的数字变成第N排
+
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+add 向集合中添加一个元素 set.add(1)
+remove 从集合中移除一个元素 set.remove(1)
+len 计算集合的长度 set.len()
+copy 对集合元素进行浅拷贝 set1 = set.copy()
+intersection 取集合交集 set3 = set1.intersection(set2)
+union 取集合并集 set3 = set1.union(set2)
+difference 取差集 set3 = set1.difference(set2)
+issubset 判断是否为子集 flag1 = set1.issubset(set2)
+issuperset 判断是否为父集 flag2 = set1.issuperset(set2)
+
+
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+
+dict.clear() 删除字典中所有元素
+dict.copy() 返回字典(浅复制)的一个副本
+dict.get(key,default=None) 对字典dict中的键key,返回它对应的值value，如果字典中不存在此键，则返回default 的值(注意，参数default 的默认值为None)
+dict.has_key(key) 如果键(key)在字典中存在，返回True，否则返回False
+dict.items() 返回一个包含字典中(键, 值)对元组的列表
+dict.keys() 返回一个包含字典中键的列表
+dict.values() 返回一个包含字典中所有值的列表
+dict.pop(key[, default]) 和方法get()相似，如果字典中key 键存在，删除并返回dict[key]，如果key 键不存在，且没有给出default 的值，引发KeyError 异常。
+
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+
+abs(x) 返回数值的绝对值
+bin(x) 将一个整数转变为一个前缀为“0b”的二进制字符串
+
+enumerate(iterable, start=0)
+返回一个枚举对象。iterable 必须是一个序列，或 iterator，或其他支持迭代的对象。 enumerate() 返回的迭代器的 __next__() 方法返回一个元组，里面包含一个计数值（从 start 开始，默认为 0）和通过迭代 iterable 获得的值。
+
+format(value[, format_spec])
+将 value 转换为 format_spec 控制的“格式化”表示。format_spec 的解释取决于 value 实参的类型，但是大多数内置类型使用标准格式化语法：格式规格迷你语言。
+
+hash(object)
+返回该对象的哈希值（如果它有的话）。
+
+hex(x)
+将整数转换为以“0x”为前缀的小写十六进制字符串。
+
+id(object)
+返回对象的“标识值”。
+
+input([prompt])
+如果存在 prompt 实参，则将其写入标准输出，末尾不带换行符。
+
+len(s)
+返回对象的长度（元素个数）。
+
+max(arg1, arg2, *args[, key])
+返回可迭代对象中最大的元素，或者返回两个及以上实参中最大的。
+
+min(arg1, arg2, *args[, key])
+返回可迭代对象中最小的元素，或者返回两个及以上实参中最小的。
+
+next(iterator[, default])
+通过调用 iterator 的 __next__() 方法获取下一个元素。
+
+open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+打开 file 并返回对应的 file object。如果该文件不能打开，则触发 OSError。
+
+print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+将objects 打印到 file 指定的文本流，以 sep 分隔并在末尾加上 end。 sep, end, file 和 flush 如果存在，它们必须以关键字参数的形式给出。
+
+range(start, stop[, step])
+虽然被称为函数，但 range 实际上是一个不可变的序列类型，参见在 range 对象 与 序列类型 --- list, tuple, range 中的文档说明。
+
+zip(*iterables)
+创建一个聚合了来自每个可迭代对象中的元素的迭代器。 返回一个元组的迭代器
+
