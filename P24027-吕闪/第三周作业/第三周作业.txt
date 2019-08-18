@@ -88,5 +88,18 @@ logs = '''
 9）字符串格式化:"{} {xxx}".format(*args,**kargs)
 
 4.排序
+nums= [3, 5, 1, 7, 9, 6, 8]
+length = len(nums)
 
+for i in range(length-1):
+    flag = False
+    for j in range(length-1-i):
+        if nums[j] > nums[j+1]:
+            tem = nums[j]
+            nums[j] = nums[j+1]
+            nums[j+1] = tem
+            flag = True
+    if not flag:
+            break;
+print(nums)
 5.统计出每种请求类型的数量
