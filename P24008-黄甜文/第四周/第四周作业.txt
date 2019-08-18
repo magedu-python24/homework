@@ -1,0 +1,54 @@
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+   杨辉三角：每行端点与结尾的数为1，每个数字等于上一行的左右两个数字之和。
+   转置矩阵：将矩阵的行列互换得到的新矩阵称为转置矩阵，转置矩阵的行列式不变。
+
+2. 说明列表和Set集合的相同点和不同点。
+   相同点：可变的，可迭代的
+   不同点：列表是有序的可索引的，集合是无序的不可索引的；列表的元素可以重复，集合的元素不可以重复且必须可hash。
+
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+   （1）add（elem）:追加一个元素到set中，如果元素存在，什么都不做。
+   （2）update（*other）：合并其他元素到set中，other必须是可迭代对象，就地修改。等同|=
+   （3）remove（element）：从set移除元素，元素不存在抛出异常keyError。
+   （4）discard（element）：从set移除元素，元素不存在什么都不做。
+   （5）pop（）-》item：移除并返回任意的元素。空集返回keyerror。
+   （6）clear（）：移除所有元素。
+   （7）in和not in ：判断元素是否在set中。
+   （8）union（*other）：并集，等同|
+   （9）intersection（*other）：交集，等同&
+   （10）intersection_update（*other）：就地修改，等同&=
+   （11）set1 < set2判断set1是否是set2的真子集
+   （12）isdisjoint（other）：判断当前集合和另一个集合有没有交集，没有返回True。
+   （13）symmetric_differece(othher)：对称差集，等同^
+   （14）symmetric_differece_update（other）：就地修改,等同^=
+
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+   （1）get（key[,default]）：返回key对应的值value，key不存在返回缺省，没有设置缺省返回none
+   （2）setdefault（key[,default]）：返回key对应的值value，key不存在，添加kv对，有设置缺省返回缺省，没有返回none。
+   （3）d[key]=value：将key对应的值修改为value，key不存在添加新的kv对
+   （4）update([other]) -》none：使用另一个字典的kv对更新本字典。
+   （5）pop（key[,default]）：key存在，移除它并返回它的value，key不存在，返回缺省，没有设置缺省抛异常keyerror
+   （6）popitem（）：移除并返回任意的键值对，字典为空抛异常keyerror
+   （7）clear（）：清空字典。
+   （8）copy()：复制，只复制一层(浅拷贝)
+   （9）D.keys()：返回可迭代的 dict_keys 集合对象
+   （10）D.values()：返回可迭代的 dict_values 值对象
+   （11）D.items()：返回可迭代的 dict_items 对象
+   （12）len()：可用于返回字典keys或values的长度
+   （13）in ：用于判断是否在字典中
+
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+   abs（x ）：返回数字的绝对值。参数可以是整数或浮点数。如果参数是一个复数，则返回其大小。
+   all（可迭代的）：返回True如果的所有元素迭代是真实的（或者如果可迭代为空）。
+   len（s ）：返回对象的长度（项目数）。参数可以是序列（例如字符串，字节，元组，列表或范围）或集合（例如字典，集合或冻结集）。
+   max（arg1，arg2，* args [，key ] ）：返回可迭代中的最大项或两个或多个参数中的最大项。
+   min（arg1，arg2，* args [，key ] ）：返回可迭代中的最小项或两个或多个参数中的最小项。
+   next（迭代器[，默认] ）：通过调用其 方法从迭代器中检索下一个项目__next__()。如果给定default，则在迭代器耗尽时返回，否则StopIteration引发。
+   print（* objects，sep =''，end ='\ n'，file = sys.stdout，flush = False ）：将对象打印到文本流文件，以sep分隔，然后结束。 sep，end，file和flush（如果存在）必须作为关键字参数给出。
+   range（开始，停止[，步骤] ）：实际上，它不是一个函数，而是range一个不可变的序列类型，如范围和序列类型 - list，tuple，range中所述。
+   sorted（iterable，*，key = None，reverse = False ）：从iterable中的项返回一个新的排序列表。
+   sum（iterable [，start ] ）：Sums 从左到右开始和可迭代的项目并返回总数。 开始默认为0。该迭代的项目通常是数字，起始值不允许是一个字符串。
+   format（value [，format_spec ] ）：将值转换为“格式化”表示，由format_spec控制 。format_spec的解释取决于value参数的类型，但是大多数内置类型都使用标准格式化语法：Format Specification Mini-Language。
+
+
+
