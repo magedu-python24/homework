@@ -12,12 +12,16 @@ while True:
     y = int(input("Second Number>>>:"))
     cs = input("Input the calculation signs + - * / >>>")
     if cs == "+":
-        print(x,"+",y,"=",add(x,y))
+        # print(x,"+",y,"=",add(x,y))
+        print("{}+{}={}".format(x,y,add(x,y)))
     elif cs == "-":
-        print(x,"-",y,"=",subtract(x,y))
+        # print(x,"-",y,"=",subtract(x,y))
+        print("{}-{}={}".format(x,y,subtract(x,y)))
     elif cs == "*":
-        print(x, "*", y, "=", multiply(x, y))
+        # print(x, "*", y, "=", multiply(x, y))
+        print("{}*{}={}".format(x,y,multiply(x,y)))
     elif cs == "/":
-        print(x,"/",y,"=",divide(x,y))
+        # print(x,"/",y,"=",divide(x,y))
+        print("{}/{}={}".format(x,y,x/y))
     else:
         print("The caculation signs is not correct! ")
