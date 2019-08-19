@@ -1,0 +1,93 @@
+【一：章节学习】
+课程习题精讲(4)与Set集合：    
+        01-杨辉三角解法；
+        02-转置矩阵解法；
+        03-重复数据统计讲解；
+        04-IPython使用和封装解构；
+        05-Set操作和hash；
+集合运算与字典：
+        01-集合运算；
+        02-字典概念；
+        03-字典遍历和删除注意事项；
+        04-缺省字典、有序字典和字典习题讲解；
+解析式和生成器表达式：
+        01-时间模块使用；
+        02-列表解析式习题和生成器表达式；
+        03-集合和字典解析式；
+        04-选择排序；
+        05-内建函数；        
+【二：本周作业】：请同学们把作业提交到Github哦~~提交时间最迟本周日
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+2. 说明列表和Set集合的相同点和不同点。
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+备注：本周没有代码作业，这些都是Python的基础，即使有写方法你感觉没有什么用平时确实也用不到，但请了解他们，知道有这么个东西存在。 
+【三、答案】
+1.杨辉三角：是二项式系数在三角形中的一种几何排列。、
+            每个数等于它上方两数之和。
+            每行数字左右对称，由1开始逐渐变大。
+            第n行的数字有n项。
+			下一行依赖上一行所有元素，是上一行所有元素两两相加的和，再在两头各加1
+  转置矩阵：将矩阵的行列互换得到的新矩阵称为转置矩阵
+2.列表和set的相同点：
+                   均可变
+				   均可增加元素
+				   均可删除元素
+				   
+  列表和set的不同点：
+                 列表有序，集合无序
+				 列表元素可重复，集合元素不重复
+				 列表元素不可hash，set元素可hash
+				 列表可通过索引访问，set元素不可索引，set无法修改、查询元素
+3.
+  set增加：
+         add(elem)m,如果元素存在，什么都不做
+		 update(*others),合并其他元素到set集合中来，参数others必须是可迭代对象，就地修改
+  set删除：
+         remove(elem):从set中移除一个元素，元素不存在级别时抛keyerror
+		 discard(elem):从set中移除一个元素，元素不存在，什么都不做
+		 pop():移除并返回任意的元素，空集抛keyerror异常
+		 clear()：移除所有元素
+4.
+  字典元素访问
+	d[key]:返回key对应的value，key不存在时抛异常
+	get(key[,default]:返回key对应的value，key不存在返回缺省值，没有设置缺省值返回none
+	setdefault(key[,default]),返回key对应的value，key不存在添加kv对，value设置为default，并返回default，如果default没有设置，缺省为none  
+  增加、修改
+	d[key]=value:将key的值修改为value值，不存在时添加新的kv对
+	update([other]):使用另一字典的kv更新本字典，不存在时添加新的kv对，就地修改
+  删除
+	pop(key[,default]):key存在，移除他，并返回它的value，key不存在返回给定的default值，default未设置，抛keyerror异常
+	popitem():移动并返回一个任意的键值对，字典为空，抛keyerror异常
+	clear():清空字典
+	del语句：删除的名称不是对象
+  字典遍历
+	for k  in d
+	for v  in d
+	for item  in d
+5.内建函数
+内建函数是python中内置的很多常用的函数，以供开发人员使用
+常用的内奸函数：
+     id()  :标识id，返回对象的唯一标识，用于获取对象的内存地址
+	 hash() :返回对象的hash值
+	 type() :返回对象类型
+	 类型转换：int() float() complex() bytes() bytearray() bin() hex() oct() bool() list() tuple() dict() 
+	 input() :接收用户输入
+	 print():打印输出
+	 len(s): 返回一个集合类型的元素个数
+	 isinstance() :判断对象是否属于某种类型或元组中列出的某个类型
+	 issubclass() 判断class是否是某种类型的子类或者元组中列出的某个类型的子类
+	 abs():绝对值
+	 max():最大值
+	 min():最小值
+	 round(x): 四舍六入五取偶
+	 pow(x,y):x**y
+	 sum() :所有元素求和
+	 divmod(x,y) 等价于tuple(x//y,x%y)
+	 chr(i): 给一个一定范围内的整数返回对应的字符
+	 ord(c):返回字符对应的整数
+	 sorted():排序，返回一个新列表，默认升序，reverese反转
+	 enumerate(seq,start=0): 枚举，迭代一个序列，返回索引数字和元素构成的二元组
+	 
+	 
