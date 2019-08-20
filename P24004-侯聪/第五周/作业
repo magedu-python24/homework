@@ -1,0 +1,60 @@
+1. 如何为函数定义keyword-only参数（写出个例子即可）？
+    def func (x,y=123,*kwarg,m=3,n,**kwargs)
+
+2. 什么是LEGB，请解释
+    变量调用的优先级：
+    本地函数定义优先于外层嵌套函数定义优先于全局变量定义优先于内置函数定义
+
+3. 二叉树的性质
+    概念
+    二叉树是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）
+    性质
+    性质1: 在二叉树的第i层上至多有2^(i-1)个结点（i>0）
+    性质2: 深度为k的二叉树至多有2^k - 1个结点（k>0）
+    性质3: 对于任意一棵二叉树，如果其叶结点数为N0，而度数为2的结点总数为N2，则N0=N2+1;
+    性质4:具有n个结点的完全二叉树的深度必为 log2(n+1)
+    性质5:对完全二叉树，若从上至下、从左至右编号，则编号为i 的结点，其左孩子编号必为2i，其右孩子编号必为2i＋1；其双亲的编号必为i/2（i＝1 时为根,除外）
+
+
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+
+     1. 运行后提示让用户输入一个数字
+
+     2. 提示输入操作符（+ - * /）
+
+     3. 再次提示输入一个数字
+
+     4. 打印计算结果
+
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+
+     6. 尽可能改善用户体验（新需求）
+
+
+def add(x,y):
+    return int(x+y)
+def subtract(x,y):
+    return int(x-y)
+def multiply(x,y):
+    return int(x*y)
+def divide(x,y):
+    return int(x/y)
+
+while True:
+    x = int(input("First Number>>>:"))
+    y = int(input("Second Number>>>:"))
+    cs = input("Input the calculation signs + - * / >>>")
+    if cs == "+":
+        # print(x,"+",y,"=",add(x,y))
+        print("{}+{}={}".format(x,y,add(x,y)))
+    elif cs == "-":
+        # print(x,"-",y,"=",subtract(x,y))
+        print("{}-{}={}".format(x,y,subtract(x,y)))
+    elif cs == "*":
+        # print(x, "*", y, "=", multiply(x, y))
+        print("{}*{}={}".format(x,y,multiply(x,y)))
+    elif cs == "/":
+        # print(x,"/",y,"=",divide(x,y))
+        print("{}/{}={}".format(x,y,x/y))
+    else:
+        print("The caculation signs
