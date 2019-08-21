@@ -5,11 +5,47 @@
 
 
 3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
-
-
+   1)创建集合  用法：1)a = set('sd')
+                    2)b = {'s', 'd'}
+   2) set.add()  向Set集合中添加一个元素
+   3) set.clear() 清空集合元素
+   4）set.copy()  浅拷贝
+   5）set.difference(set1)  返回一个差集，即在set中但不在set1中的元素
+   6）set.difference_update(set1) 移除两个集合中相同的元素
+   7）set.discard() 删除集合中指定的元素
+   8）set.intersection(set1,set2,...) 返回交集(返回一个新集合set2)
+   9）set.intersection_update(set1,set2,...) 返回交集（移除掉不重叠的元素set）
+   10）set.isdisjoint(set1) 判断是否有交集
+   11）set.issubset(set1)  判断set是否是set1的子集
+   12）set.issuperset(set1) 判断set是否是set1的父集
+   13）set.pop() 随机移除一个元素
+   14）set.remove(x)  移除指定元素
+   15）set.symmetric_difference(set1) 返回两集合中不重复的元素集合（返回一个新集合set2）
+   16）set.symmetric_difference_update(set1) 返回两集合中不重复的元素集合(set)
+   17) set.union() 返回两个集合的并集
+   18）set.update() 给集合添加元素
 
 4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
-
+   1) 创建字典
+            用法：1）a = dict(key1=value1, key2=value2,...)
+                  2) b = {key1:value1, key2:value2,...}
+   2) 访问值  用法：dict[key]
+             注：如果没有这个键，则会抛出错误
+             ===>>访问所有值：for key in dict: ...
+   3) 修改字典  用法：dict[key] = new_value
+   4) 删除  用法：1）删除单个元素  dict[key]
+                2) 删除字典中所有元素  dict.clear()
+                3) 删除整个字典  del dict   删除后再访问则会抛出异常
+   5）更新字典  用法： dict.update(dict1)  将一个字典的内容（dict1）添加到另一个字典中（dict）
+   6) 浅复制    用法：dict.copy()
+   7) dict.fromkeys() 用给定的键建立字典，对应的值默认为“None”
+   8) dict.get(key, default=None)  返回指定键的值，如果值不在字典中返回default值
+   9) dict.has_key(key) 如果键在字典dict里返回true，否则返回false
+   10) dict.items() 以列表返回可遍历的(键, 值) 元组数组
+   11) dict.keys() 以列表返回一个字典所有的键
+   12) dict.values() 以列表返回字典中的所有值
+   13)dict.setdefault(key, default=None)  和get方法类似，不同之处在于，如不存在该键，则添加该键到字典中并将值设置为default的值
+   14) dict.items() 以列表返回可遍历的(键, 值) 元组数组
 
 5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
 
