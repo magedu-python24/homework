@@ -34,11 +34,12 @@ for i in split_logs:
     if len(i) == 1:
         split_logs.remove(i)
 
-for str in split_logs:
-    lower_logs = str.lower()
+for handle_str in split_logs:
+    lower_logs = handle_str.lower()
     split_str = lower_logs.split('"')
     operation_str = split_str[1]
     get_operation_str = operation_str.split()
+
     if 'post' in get_operation_str[0]:
         PostNum += 1
 
