@@ -57,4 +57,5 @@
 	values: 返回字典的values
 
 5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+	请参见同级目录的“函数说明.txt”文件
 	
