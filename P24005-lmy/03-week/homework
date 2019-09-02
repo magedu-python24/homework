@@ -1,0 +1,88 @@
+1.说明列表的浅拷贝和深拷贝的区别
+    浅拷贝在遇到引用类型时，只是复制引用，当引用类型的值发生变化，原对象和复制后的对象也会随之发生变化
+    深拷贝是完全复制原对象，当引用类型的值发生变化，原对象和复制后的对象不会产生关联变化
+    例：
+        浅拷贝：
+        lst0 = [1, 2, [1, 2], 3]
+        lst1 = lst0.copy()
+        lst0[2][0] = 999 #修改引用对象lst0[2][0]
+        输出:lst0 = [1, 2, [999, 2], 3]
+            lst1 = [1, 2, [999, 2], 3]
+            因为浅拷贝原因，引用对象lst0[2][0]发生变化，引起lst1同样发生变化
+
+        深拷贝：
+        lst0 = [1, 2, [1, 2], 3]
+        lst1 = copy.deepcopy(lst0)
+        lst0[2][0] = 999 #修改引用对象lst0[2][0]
+        输出:lst0 = [1, 2, [999, 2], 3]
+            lst1 = [1, 2, [1, 2], 3]
+            因为深拷贝原因，引用对象lst0[2][0]发生变化，不会引起lst1发生变化
+
+2.说明列表和元祖的相同点和不同点
+    相同点：有序的序列、可以索引访问的线性数据结构
+    不同点：列表是可变的，比如元素的增、删、改。
+           元祖是不可变
+
+3.写出字符串支持的所有方法及说明
+    join：       使用字符串将另一个字符串连接起来，返回新的字符串
+    +：          将两个字符串连接起来，返回新的字符串
+    split：      将字符串以自定义的符号进行分割，返回一个新的列表
+    partition：  将字符串分割成两段，返回一个新的列表
+    splitlines： 将字符串以行进行分割
+    upper：      所有字符大写
+    lower：      所有字符小写
+    swapcase：   字母大小写反转
+    title：      每个单词首字母大写
+    capitalize： 首个单词首个字母大写
+    zfill：      字符串右对齐，左边补充0
+    center：     指定宽度后字符居中，自定义补全字符
+    ljust，rjust：左对齐，右对齐，用法类似center
+    find，rfind： 从左往右查找字符，返回索引
+    index，rindex：类似find
+    len：        返回字符串长度
+    count：      统计字符串中指定字符出现的次数
+    endwith，startwith：判断字符串是否以指定字符结束或开始，返回bool
+    format：     格式化字符串
+    isalnum，isalpha，isdecimal，isdigit，isidentifier，islower，isupper，isspace:判断字符串类型，返回bool
+
+4.使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+    a = [3, 5, 1, 7, 9, 6, 8]
+    for i in range(len(a)-1):
+        flag = 0
+        for j in range(len(a)-1-i):
+            if a[j] > a[j+1]:
+               a[j+1], a[j] = a[j], a[j+1]
+               flag = 1
+        if not flag:
+            break
+    print(a)
+
+5.有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+    POST 2
+    GET 3
+    下边是logs变量：
+        logs = '''
+        111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200
+        111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200
+        111.13.100.92 "Post /mock/login/ HTTP/1.1" 200
+        223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200
+        111.30.144.7 "GET /mock/users/ HTTP/1.1" 200
+        '''
+    print("POST:{}".format(logs.upper().count('"POST')))
+    print("GET:{}".format(logs.upper().count('"GET')))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
