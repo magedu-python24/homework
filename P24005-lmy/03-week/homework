@@ -68,6 +68,7 @@
         223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200
         111.30.144.7 "GET /mock/users/ HTTP/1.1" 200
         '''
+    思路：先进行upper统一字符大小，然后直接用count统计"POST和"GET的数量，最后用format方式打印
     print("POST:{}".format(logs.upper().count('"POST')))
     print("GET:{}".format(logs.upper().count('"GET')))
 
