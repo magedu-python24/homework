@@ -8,11 +8,11 @@ while True:
     if opt=='*':
         c=int(a)*int(b)
     elif opt=='/':
-        c=int(a)*int(b)
+        c=int(a)/int(b)
     elif opt=='+':
-        c=int(a)*int(b)
+        c=int(a)+int(b)
     elif opt=='-':
-        c=int(a)*int(b)
+        c=int(a)-int(b)
     else:
         print('unrecognized option')
         continue

@@ -1,0 +1,80 @@
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+
+    C(N-1,M-1)=(n-1)!/(m-1)!(n-m)!
+
+    第N行地M列的数字满足于上面算式
+
+    转直矩阵
+
+    a[i][j]==a[j][i]
+2. 说明列表和Set集合的相同点和不同点。
+
+    列表和ser都是可叠戴对象，列表是有序的可以修改的，可以通过索引找value，列表中元素可以是任何数据结构，也可重复，但是通常使用列表效率较低。
+    set是无序的，不重复的，可以修改，set是可hush结构，使用起来效率较高。
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+
+    add(obj)
+    upate(iterable obj)
+    remove(obj)
+    discard(obj)--如果没有不会报错
+    union(*others)并集
+    intersection()....&
+    difference()....-
+    对称差集  ……^
+    判断子集<
+    判断超集>
+    isdisjoin（obj)
+    没有交集？
+    
+   
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+
+   dic.fromkeys(iterableobj,value)
+   
+   dic.get()
+   dic.get(key,default)
+   不存在给出缺省值
+   setdefault(key,default)
+    不存在key,返回缺省值default,并原地在原字典里更新
+   d[key]=value
+    修改
+   d.update(key=value)
+
+   pop(key,[default])
+
+  清空key的键直对，没有的话返回缺省值
+
+ clear()
+  清空
+
+  popitem()
+
+ 随机去掉一个key-value
+
+
+5. 请写出Python内建函数及说明
+   id()---返回内存中的地址
+   hash()----返回hash值
+   type()---返回数据类型
+   isinstance(obj, type)返回布尔
+   hex()返回十六进制
+   abs()返回绝对值
+   round()四舍六入五取整
+   divmod(x,y)返回（x//y,x%y)
+   sum(iterable obj)求和
+   ord()..键盘值返回ASCII
+   chr()...ASCII转化为键盘值
+
+   sorted(iterable obj)返回一个列表
+   sorted(dic),返回一个以key排序的列表
+   reversed(iterableobj) 返回一个反转后的迭代器
+   ennumerate(iterable obj)返回以（index,value)组成元祖的迭代器
+   iter(iterable obj)生产迭代器
+   next(,default)对迭代器进行迭代，如果迭代结束返回缺省值
+   zip（iterable1,iterable2)返回以（iterable1(i),iterable2(i））形成的迭代器，长度为iterable1和iterable2的最小值
+
+    
+   
+  
+ 
+    

@@ -1,0 +1,253 @@
+1.什么是杨辉三角和转置矩阵（文字说明）？
+	杨辉三角，是二项式系数在三角形中的一种几何排列。每个数字等于它上方两数之和。每行数字左右对称，由1开始逐渐变大。第n行的m个数可表示为 C(n-1，m-1)，即为从n-1个不同元素中取m-1个元素的组合数。
+	转置矩阵，将矩阵的行列互换得到的新矩阵称为转置矩阵。
+
+2.说明列表和Set的相同点和不同点。
+	相同点：都可变，都可迭代，都是多元素的集合。
+	不同点：
+		1.列表是有序排列线性结构，可索引。Set元素是无序的，不可通过索引访问。
+		2.Set元素必须可hash，且不重复。列表元素无这些要求。
+		3.列表查询复杂度为O(n)，Set为O(1)
+
+3.写出Set集合支持的所有方法及说明。
+	add(elem):增加一个元素到set中
+	update(*other):合并其它元素到set集合中来,参数必须可迭代
+	remove(elem):移除一个元素,元素不存在抛异常
+	discard(elem):移除一个元素，元素不存在什么都不做
+	pop():移动并返回任意的元素
+	clear():清除所有元素
+	union:将多个集合合并，返回一个新的集合。等同于符号|
+	update(*others)多个集合合并，就地修改。|=
+	intersection:返回多个集合的交集。等同于符号&
+	intersection_update:获取多个合集的交集，并就地修改。&=
+	difference:返回多个集合的差集。-
+	difference_update:获取多个合集的差集，并就地修改。-=
+	symmetric_difference:返回和另一个合集的差集。^
+	symmetric_difference_update:获取和另一个合集的差集，并就地修改。^=
+	issubset:判断是不是另一个合集的子集、<=
+	set1<set2:判断set1是为是set2的真子集
+	issuperset:判断当前合集是否是Other的超集、>=
+	set1>set2:判断set1是否是set的真超集
+	isdisjoint:判断当前合集和另一个合集有没有交集。没有交集返回True
+
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+	d[key]返回key对应的值，不存在抛异常。	
+	get[key,[defaule]]: 返回key对应的值,不存在返回缺省值	
+	setdefault: 返回key对应的value，如果key不存在，就添加kv对，value设置为default，并返回default，default缺省值为None
+	d[key] = value 改值不存在就添加
+	update([other]): 使用另一个字典kv对更新本字典,改值或添加。就地修改
+	pop(key,[default]): 移除对应的键并返回对应的值,不存在返回default
+	popitem():移除并返回一个任意键值对
+	clear() :清除当前字典内容
+
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+	abs(x)
+	返回一个数的绝对值。实参可以是整数或浮点数。如果实参是一个复数，返回它的模。
+
+	all(iterable)
+	如果 iterable 的所有元素为真（或迭代器为空），返回 True 。
+
+	any(iterable)
+	如果 iterable 的任一元素为真则返回 True。 如果迭代器为空，返回 False。
+
+	ascii(object)
+	就像函数 repr()，返回一个对象可打印的字符串，但是 repr() 返回的字符串中非 ASCII 编码的字符，会使用 \x、\u 和 \U 来转义。
+
+	bin(x)
+	将一个整数转变为一个前缀为“0b”的二进制字符串。结果是一个合法的 Python 表达式。如果 x 不是 Python 的 int 对象，那它需要定义 __index__()方法返回一个整数。
+
+	class bool([x])
+	返回一个布尔值，True 或者 False。 x 使用标准的 真值测试过程 来转换。如果 x 是假的或者被省略，返回 False；其他情况返回 True。bool 类是 int 的子类。其他类不能继承自它。它只有 False 和 True 两个实例。
+
+	breakpoint(*args, **kws)
+	此函数会在调用时将你陷入调试器中。具体来说，它调用 sys.breakpointhook() ，直接传递 args 和 kws 。默认情况下， sys.breakpointhook() 调用 pdb.set_trace() 且没有参数。在这种情况下，它纯粹是一个便利函数，因此您不必显式导入 pdb 且键入尽可能少的代码即可进入调试器。但是， sys.breakpointhook() 可以设置为其他一些函数并被 breakpoint() 自动调用，以允许进入你想用的调试器。
+
+	3.7 新版功能
+	class bytearray([source[, encoding[, errors]]])
+	返回一个新的 bytes 数组。 bytearray 类是一个可变序列，包含范围为 0 <= x < 256 的整数。它有可变序列大部分常见的方法，见 可变序列类型 的描述；同时有 bytes 类型的大部分方法，参见 bytes 和 bytearray 操作。
+
+	class bytes([source[, encoding[, errors]]])
+	返回一个新的“bytes”对象， 是一个不可变序列，包含范围为 0 <= x < 256 的整数。bytes 是 bytearray 的不可变版本 - 它有其中不改变序列的方法和相同的索引、切片操作。
+	因此，构造函数的实参和 bytearray() 相同。字节对象还可以用字面值创建。
+
+	callable(object)
+	如果实参 object 是可调用的，返回 True，否则返回 False。如果返回真，调用仍可能会失败；但如果返回假，则调用 object 肯定会失败。注意类是可调用的（调用类会返回一个新的实例）。如果实例的类有 __call__() 方法，则它是可调用。
+
+	chr(i)
+	返回 Unicode 码位为整数 i 的字符的字符串格式。
+
+	compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
+	将 source 编译成代码或 AST 对象。代码对象可以被 exec() 或 eval() 执行。source 可以是常规的字符串、字节字符串，或者 AST 对象。参见 ast 模块的文档了解如何使用 AST 对象。
+
+	class complex([real[, imag]])
+	返回值为 real + imag*1j 的复数，或将字符串或数字转换为复数。如果第一个形参是字符串，则它被解释为一个复数，并且函数调用时必须没有第二个形参。第二个形参不能是字符串。每个实参都可以是任意的数值类型（包括复数）。如果省略了 imag，则默认值为零，构造函数会像 int 和 float 一样进行数值转换。如果两个实参都省略，则返回 0j。
+
+	delattr(object, name)
+	setattr() 相关的函数。实参是一个对象和一个字符串。该字符串必须是对象的某个属性。如果对象允许，该函数将删除指定的属性。例如 delattr(x, 'foobar') 等价于 del x.foobar 。
+
+	class dict(**kwarg)
+	class dict(mapping, **kwarg)
+	class dict(iterable, **kwarg)
+	创建一个新的字典。dict 对象是一个字典类。
+
+	dir([object])
+	如果没有实参，则返回当前本地作用域中的名称列表。如果有实参，它会尝试返回该对象的有效属性列表。
+
+	divmod(a, b)
+	它将两个（非复数）数字作为实参，并在执行整数除法时返回一对商和余数。对于混合操作数类型，适用双目算术运算符的规则。
+
+	enumerate(iterable, start=0)
+	返回一个枚举对象。iterable 必须是一个序列，或 iterator，或其他支持迭代的对象。
+
+	eval(expression, globals=None, locals=None)
+	实参是一个字符串，以及可选的 globals 和 locals。globals 实参必须是一个字典。locals 可以是任何映射对象。
+
+	exec(object[, globals[, locals]])
+	这个函数支持动态执行 Python 代码。object 必须是字符串或者代码对象。如果是字符串，那么该字符串将被解析为一系列 Python 语句并执行（除非发生语法错误）。
+
+	filter(function, iterable)
+	用 iterable 中函数 function 返回真的那些元素，构建一个新的迭代器。iterable 可以是一个序列，一个支持迭代的容器，或一个迭代器。如果 function 是 None ，则会假设它是一个身份函数，即 iterable 中所有返回假的元素会被移除。
+
+	class float([x])
+	返回从数字或字符串 x 生成的浮点数。
+
+	format(value[, format_spec])
+	将 value 转换为 format_spec 控制的“格式化”表示。format_spec 的解释取决于 value 实参的类型，但是大多数内置类型使用标准格式化语法：格式规格迷你语言。
+
+	class frozenset([iterable])
+	返回一个新的 frozenset 对象，它包含可选参数 iterable 中的元素。
+
+	getattr(object, name[, default])
+	返回对象命名属性的值。name 必须是字符串。如果该字符串是对象的属性之一，则返回该属性的值。
+
+	globals()
+	返回表示当前全局符号表的字典。这总是当前模块的字典（在函数或方法中，不是调用它的模块，而是定义它的模块）。
+
+	hasattr(object, name)
+	该实参是一个对象和一个字符串。如果字符串是对象的属性之一的名称，则返回 True，否则返回 False。
+
+	hash(object)
+	返回该对象的哈希值（如果它有的话）。哈希值是整数。它们在字典查找元素时用来快速比较字典的键。相同大小的数字变量有相同的哈希值（即使它们类型不同，如 1 和 1.0）。
+
+	help([object])
+	启动内置的帮助系统（此函数主要在交互式中使用）。如果没有实参，解释器控制台里会启动交互式帮助系统。如果实参是一个字符串，则在模块、函数、类、方法、关键字或文档主题中搜索该字符串，并在控制台上打印帮助信息。如果实参是其他任意对象，则会生成该对象的帮助页。
+
+	hex(x)
+	将整数转换为以“0x”为前缀的小写十六进制字符串。如果 x 不是 Python int 对象，则必须定义返回整数的 __index__() 方法。
+
+	id(object)
+	返回对象的“标识值”。该值是一个整数，在此对象的生命周期中保证是唯一且恒定的。两个生命期不重叠的对象可能具有相同的 id() 值。
+
+	input([prompt])
+	如果存在 prompt 实参，则将其写入标准输出，末尾不带换行符。接下来，该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。当读取到 EOF 时，则触发 EOFError。
+
+	class int([x])
+	class int(x, base=10)
+	返回一个使用数字或字符串 x 生成的整数对象，或者没有实参的时候返回 0 。如果 x 定义了 __int__()，int(x) 返回 x.__int__() 。如果 x 定义了 __trunc__()，它返回 x.__trunc__() 。对于浮点数，它向零舍入。
+
+	isinstance(object, classinfo)
+	如果 object 实参是 classinfo 实参的实例，或者是（直接、间接或 虚拟）子类的实例，则返回 true。如果 object 不是给定类型的对象，函数始终返回 false。如果 classinfo 是对象类型（或多个递归元组）的元组，如果 object 是其中的任何一个的实例则返回 true。 如果 classinfo 既不是类型，也不是类型元组或类型的递归元组，那么会触发 TypeError 异常。
+
+	issubclass(class, classinfo)
+	如果 class 是 classinfo 的子类（直接、间接或 虚拟 的），则返回 true。classinfo 可以是类对象的元组，此时 classinfo 中的每个元素都会被检查。其他情况，会触发 TypeError 异常。
+
+	iter(object[, sentinel])
+	返回一个 iterator 对象。
+
+	len(s)
+	返回对象的长度（元素个数）。
+
+	class list([iterable])
+	虽然被称为函数，list 实际上是一种可变序列类型
+
+	locals()
+	更新并返回表示当前本地符号表的字典。
+
+	map(function, iterable, ...)
+	返回一个将 function 应用于 iterable 中每一项并输出其结果的迭代器。
+
+	max(iterable, *[, key, default])
+	max(arg1, arg2, *args[, key])
+	返回可迭代对象中最大的元素，或者返回两个及以上实参中最大的。
+
+	memoryview(obj)
+	返回由给定实参创建的“内存视图”对象。
+
+	min(iterable, *[, key, default])
+	min(arg1, arg2, *args[, key])
+	返回可迭代对象中最小的元素，或者返回两个及以上实参中最小的。
+
+	next(iterator[, default])
+	通过调用 iterator 的 __next__() 方法获取下一个元素。
+
+	class object
+	返回一个没有特征的新对象。
+
+	oct(x)
+	将一个整数转变为一个前缀为“0o”的八进制字符串。
+
+	open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+	打开 file 并返回对应的 file object。如果该文件不能打开，则触发 OSError。
+
+	ord(c)
+	对表示单个 Unicode 字符的字符串，返回代表它 Unicode 码点的整数。
+
+	pow(x, y[, z])
+	返回 x 的 y 次幂；如果 z 存在，则对 z 取余（比直接 pow(x, y) % z 计算更高效）。
+
+	print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+	将 objects 打印到 file 指定的文本流，以 sep 分隔并在末尾加上 end。
+
+	class property(fget=None, fset=None, fdel=None, doc=None)
+	返回 property 属性。
+
+	range(stop)
+	range(start, stop[, step])
+	虽然被称为函数，但 range 实际上是一个不可变的序列类型
+
+	repr(object)
+	返回包含一个对象的可打印表示形式的字符串。
+
+	reversed(seq)
+	返回一个反向的 iterator。
+
+	round(number[, ndigits])
+	返回 number 舍入到小数点后 ndigits 位精度的值。
+
+	class set([iterable])
+	返回一个新的 set 对象，可以选择带有从 iterable 获取的元素。
+
+	setattr(object, name, value)
+	此函数与 getattr() 两相对应。
+
+	class slice(stop)
+	class slice(start, stop[, step])
+	返回一个表示由 range(start, stop, step) 所指定索引集的 slice 对象。
+
+	sorted(iterable, *, key=None, reverse=False)
+	根据 iterable 中的项返回一个新的已排序列表。
+
+	class str(object='')
+	class str(object=b'', encoding='utf-8', errors='strict')
+	返回一个 str 版本的 object 。有关详细信息，请参阅 str() 。
+
+	sum(iterable[, start])
+	从 start 开始自左向右对 iterable 中的项求和并返回总计值。
+
+	super([type[, object-or-type]])
+	返回一个代理对象，它会将方法调用委托给 type 指定的父类或兄弟类。
+
+	tuple([iterable])
+	虽然被称为函数，但 tuple 实际上是一个不可变的序列类型。
+
+	class type(object)
+	class type(name, bases, dict)
+	传入一个参数时，返回 object 的类型。
+
+	vars([object])
+	返回模块、类、实例或任何其它具有 __dict__ 属性的对象的 __dict__ 属性。
+
+	zip(*iterables)
+	创建一个聚合了来自每个可迭代对象中的元素的迭代器。
+
+

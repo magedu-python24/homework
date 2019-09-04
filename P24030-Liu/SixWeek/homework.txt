@@ -1,0 +1,63 @@
+1.什么是高阶函数和柯里化
+      高阶函数:
+      数学概念 y=g(f(x))
+      在数学和计算机科学中,高阶函数应当是至少满足下面一个条件的函数
+          接受一个或多个函数作为参数
+          输出一个函数
+      def foo(fn):
+          fn()
+      此函数接受一个函数作为参数,所以是高阶函数
+      def counter(base):
+          def inc(step=1):
+             nonlocal base
+             base += step
+             return base
+          return inc
+      此函数返回了一个函数,所以是高阶函数
+     
+      柯里化:
+      指的是将原来接受两个参数的函数变成新的接受一个参数的函数的过程
+      新的函数返回一个以原有第二个参数为参数的函数
+      z = f(x, y) 转换成 z = f(x)(y)的形式
+      def add(x,y)
+          return x+y
+      def add(x):
+          def _add(y):
+              return x+y
+           return _add
+
+2.请列出functools包内的每个函数的功能作用
+      reduce:顾名思义就是减少,可迭代对象不能为空;初始值没提供就在可迭代对象中取一个元素
+      nums = [6, 9, 4, 2, 4, 10, 5, 9, 6, 9]
+      print(nums)
+      print(sum(nums))
+      print(reduce(lambda val, x: val + x, nums))
+
+      partial:偏函数,把函数部分的参数固定下来,相当于为部分的参数添加了一个固定的默认值,形成一个新的函数并返回
+      def add(x, y) -> int:
+         return x + y
+      newadd = functools.partial(add, y=5)
+      print(newadd(7))
+      print(newadd(7, y=6))
+      print(newadd(y=10, x=6))
+
+      lru_cache:采用lru算法的缓存装饰器,通过一个字典缓存被装饰函数的调用和返回值
+      使用前提:
+        同样的函数参数一定得到同样的结果
+        函数执行时间很长,且要多次执行
+        本质是函数调用的参数=>返回值
+      缺点:
+        不支持缓存过期,key无法过期、失效
+        不支持清除操作
+        不支持分布式,是一个单机的缓存
+        适用场景,单机上需要空间换时间的地方,可以用缓存来将计算变成快速的查询
+
+      wraps:用于修改函数签名信息的有参装饰器,由于Python装饰器在实现的时候，被装饰后的函数其实已经是另外一个函数了,需要在装饰的函数上添加wraps装饰器
+
+
+3.请使用已学习的装饰器相关知识自己实现functools.lur_cache
+
+4.什么是类型注解并说明其背后的目的
+       由于python是动态语言,变量随时可以被赋值,且能赋值为不同类型
+       所以对函数的参数进行注解,能方便编译器对'隐形错误'的检查
+

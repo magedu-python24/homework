@@ -1,0 +1,61 @@
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+	杨辉三角：
+		多行有规律的数字，第一行为1，第二行为1，1，第三行开始，每行两端是1，其余数字都是由上一行对位的两个数字相加而得。如以下示：
+		   1
+		  1 1
+		 1 2 1
+		1 3 3 1
+	   1 4 6 4 1
+	 转置矩阵：
+	 	将一组数字转换为另一组行数和列数相反的数字，如下：
+	 	1 2 3    	1 4
+	 	      	》》 	2 5
+	 	4 5 6    	3 6
+
+2. 说明列表和Set集合的相同点和不同点。
+	相同点：
+		1、都是可变的：内容可以后期多次修改
+		2、都是多个元素的集合
+	不同点：
+		1、list是有序排列，set是无序排列
+		2、list可以使用索引访问某个元素，set不可以
+		3、set的元素必须可hash,list则无这个要求
+		4、list元素可重复，set元素不可以重复
+		5、list时间复杂度为o(n)，set的时间复杂度为o(1)
+
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+	add:增加一个元素
+	update:合并其它元素到set集合中来
+	remove:移除一个元素
+	discard:移除一个元素
+	pop:移动并返回一个新的元素
+	clear:清除所有元素
+	union:将多个集合合并，返回一个新的集合
+	intersection:返回多个集合的交集
+	intersection_update:获取多个合集的交集，并就地修改
+	difference:返回多个集合的差集
+	difference_update:获取多个合集的差集，并就地修改
+	symmetric_difference:返回和另一个合集的差集
+	symmetric_difference_update:获取和另一个合集的差集，并就地修改
+	issubset:判断是不是另一个合集的子集
+	set1<set2:判断set1是为是set2的真子集
+	issuperset:判断当前合集是否是Other的超集
+	set1>set2:判断set1是否是set的真超集
+	isdisjoint:判断当前合集和另一个合集有没有交集
+
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+	clear:清除当前字典内容
+	copy: 复制当前字典内容
+	fromkeys:用key创建一个新的字典并设置value
+	get: 返回key对应的值
+	items: 返回字典的键值对
+	keys: 返回字典的key
+	pop: 移除对应的键并返回对应的值
+	popitem: 移除key value 并返回移除的内容
+	setdefault: 返回key对应的value，如果key不存在，就添加kv对，value设置为default，并返回default，default缺省值为None
+	update: 更新字典
+	values: 返回字典的values
+
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+	请参见同级目录的“函数说明.txt”文件
+	

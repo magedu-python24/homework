@@ -1,0 +1,122 @@
+本周（8月5日-8月11日）
+
+【二：本周作业】：请同学们把作业提交到Github哦~~提交时间最迟本周日
+1. 说明列表的浅拷贝和深拷贝的区别；
+浅拷贝：影子拷贝；为了解决函数传递后被修改的问题，就需要拷贝一份副本，将副本传递给函数使用，就算是副本被修改，也不会影响原始数据 。
+深拷贝：深拷贝使复制过程递归。这意味着首先构造一个新的集合对象，然后递归地用在原始对象中找到的子对象的副本填充它。以这种方式复制一个对象，遍历整个对象树，以创建原始对象及其所有子对象的完全独立的克隆。
+数据拷贝会涉及到Python中对象、可变类型、引用，在这三个层面有所区别
+
+2. 说明列表和元组的相同点和不同点。
+相同点：list和tuple都是常见的数据结构
+不同点：
+1.list是可变的；tuple是不可变的；元组可以用作字典的 key，而列表不行
+2. tuple比list的迭代的性能要比list好；
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+
+字符串的内置方法
+注意:所有字符串方法都返回新值。它们不改变原始字符串。
+
+Method	Description
+capitalize()	将第一个字符转换为大写
+casefold()	将字符串转换为小写
+center()	返回一个居中字符串
+count()	返回指定值在字符串中出现的次数
+encode()	返回字符串的编码版本
+endswith()	如果字符串以指定的值结束，则返回true
+expandtabs()	设置字符串的选项卡大小
+find()	搜索字符串中指定的值，并返回找到该值的位置
+format()	格式化字符串中指定的值
+format_map()	格式化字符串中指定的值
+index()	搜索字符串中指定的值，并返回找到该值的位置
+isalnum()	如果字符串中的所有字符都是字母数字，则返回True
+isalpha()	如果字符串中的所有字符都在字母表中，则返回True
+isdecimal()	如果字符串中的所有字符都是小数，则返回True
+isdigit()	如果字符串中的所有字符都是数字，则返回True
+isidentifier()	如果字符串是标识符，则返回True
+islower()	如果字符串中的所有字符都是小写，则返回True
+isnumeric()	如果字符串中的所有字符都是数字，则返回True
+isprintable()	如果字符串中的所有字符都可打印，则返回True
+isspace()	如果字符串中的所有字符都是空白，则返回True
+istitle()	如果字符串遵循标题规则，则返回True
+isupper()	如果字符串中的所有字符都是大写，则返回True
+join()	将迭代器的元素连接到字符串的末尾
+ljust()	返回字符串的左对齐版本
+lower()	将字符串转换为小写
+lstrip()	返回字符串的左修剪版本
+maketrans()	返回要在翻译中使用的翻译表
+partition()	返回一个元组，其中字符串被分成三个部分
+replace()	返回一个字符串，其中指定值替换为指定值
+rfind()	搜索字符串中指定的值，并返回找到该值的最后一个位置
+rindex()	搜索字符串中指定的值，并返回找到该值的最后一个位置
+rjust()	返回字符串的右对齐版本
+rpartition()	返回一个元组，其中字符串被分成三个部分
+rsplit()	在指定的分隔符处分割字符串，并返回一个列表
+rstrip()	返回字符串的右修剪版本
+split()	在指定的分隔符处分割字符串，并返回一个列表
+splitlines()	在换行符处分割字符串并返回一个列表
+startswith()	如果字符串以指定的值开始，则返回true
+strip()	返回字符串的修剪后的版本
+swapcase()	交换情况，小写变成大写，反之亦然
+title()	将每个单词的第一个字符转换为大写
+translate()	返回翻译后的字符串
+upper()	将字符串转换为大写字母
+zfill()	在开始时用指定数量的0值填充字符串
+
+
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+# 排序算法问题：
+
+nums = list(map(int,'3 5 1 7 9 6 8'.split()))
+
+for i in range(len(nums)):
+    for j in range(len(nums)-1-i):
+        if nums[j] > nums[j+1]:
+            nums[j],nums[j+1] = nums[j+1],nums[j]
+nums
+-----------------------------------------
+[1, 3, 5, 6, 7, 8, 9]
+
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+''' 
+解答：
+
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+''' 
+
+logs = logs.upper()
+logs = logs.split('\n')
+post = 0
+get = 0
+for j in (logs):
+    j = j.split()
+    if len(j) != 0:
+        pass
+        if 'POST' in j[1]:
+            post += 1
+        if 'GET' in j[1]:
+            get += 1
+print("POST {},GET {}".format(post,get))
+
+--------------------------------------------------
+POST 2,GET 3
+
+
+
+
