@@ -1,0 +1,50 @@
+1.杨辉三角和转置矩阵的说明
+	- 杨辉三角：a.给定前两行，每两行数字等于其上方两数之和(边界处没有数字，取0)
+			   b.每行数字左右对称，且数字数量和行数相同
+			   c.每一行数字组合又是二项式系数 (a+b)**
+
+	- 转置矩阵：方阵：以对角线为基准，对应位置数字替换位置
+			   非方阵：对于 m*n 的矩阵，其转置矩阵为 n*m
+
+2.列表和set集合
+set的特点：a.无序，可变，去重；b.非线性结构
+同列表相比，集合有已下不同之处：1-集合内部使用hash值作为key，因此集合元素需要是可以hash的
+                               （可根据元素是否可变判断其是否可hash，可变则是不可hash，不可变则是可hash)；
+							 2-集合是无序的，不支持索引访问集合元素；通过hash查找元素，集合的查询的时间复杂的为O(1)
+							 3-集合是去重的，向集合添加已存在元素是不能成功的：即add(elem)，如何元素存在，什么都不做。
+					相同之处：set和list都是可迭代对象
+
+3.set支持的方法
+add(elem)     -向集合中添加元素，如何使已存在的元素则不做添加
+update(iter)  -把可迭代对象的元素加入集合中(iter是列表会做去重，但列表元素必须是可hash的，否则typeErroe; iter是dict类型，会把key加入集合)
+
+remove(elem)  -从集合中移除一个元素，该元素不存在报keyError
+discard(elem) -移除一个元素，该元素不存在，不报错
+pop() ->elem  -从集合随机移除一个元素，返回该元素；集合是空集时，返回keyError
+clear()       -移除集合所有元素
+
+成员运算符 in 和 not in 判断元素是否在set中
+
+并集
+union(others)  -返回多个集合的并集； 运算符 |
+update(others) -多个集合合并，和上面的区别：就地修改；运算符 |=
+
+交集
+intersection(others)        -返回多个集合的交集；运算符 &
+intersection_update(others) - 返回多个集合的交集，和上面的区别：就地修改；运算符 &=
+
+差集
+A.difference(others)        -返回集合A和多个集合的差集；运算符 -
+A.difference_update(others) -返回集合A和多个集合的差集，就地修改；运算符 -=
+
+4.dict支持的方法
+dict.fromkeys(iter[,value])     - 通过迭代iter，利用iter作为key、[value]作为值创建字典；value未设置时取缺省值 None
+dict.setdefault(key[,default])  - 若key在字典中，返回对应value；若key不在字典中，则把 key-default 作为 k-v 插入字典，default缺省值为None
+dict.update([other])            - 根据other中的 k-v 更新字典；key已存在则更新对应的 value ,不存在则插入；
+
+dict.get(key[,default])         - key存在，返回字典中key对应的value；不存在返回default，default未设置抛出keyError
+
+dict.pop(key[,default])         - 根据key删除字典元素，并返回key对应的value；key不存在则返回默认值,default未指定，抛出keyError 
+dict.popitem()                  - 每次调用移除字典中的元素，字典为空时，抛出keyError; 考虑到字典是无序，该方法应该是随机删除字典元素，
+                                  但是调试发现总是从尾部删除元素，为什么？
+dict.clear()				    - 移除字典全部元素
