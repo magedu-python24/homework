@@ -1,0 +1,59 @@
+【二：本周作业】：请同学们把作业提交到Github哦~~提交时间最迟本周日
+    1. 什么是高阶函数和柯理化并举例说明。
+
+高阶函数：一个函数可以接收另一个函数作为参数，这样的函数叫做高阶函数;
+常见的高阶函数有：map()、filter()、reduce()、sorted()， 举例：装饰器；
+
+
+柯里化Currying：本来可以一次传入两个参数，柯里化之后，只需要传入一个函数了。新函数返回一个以原有第二个参数作为参数的函数；
+举例:
+
+def reg(cmd, fn):
+	commands[cmd] = fn
+
+柯里化之后：
+def reg(cmd):
+    def _reg(fn):
+        commands[cmd] = fn
+        return cmd
+    return _reg
+
+
+    2. 请列出functools包内的每个函数的功能作用。
+
+functools，用于高阶函数：指那些作用于函数或者返回其它函数的函数，通常只要是可以被当做函数调用的对象就是这个模块的目标。
+
+cmp_to_key，将一个比较函数转换关键字函数；
+partial，针对函数起作用，并且是部分的；
+reduce，与python内置的reduce函数功能一样；
+total_ordering，在类装饰器中按照缺失顺序，填充方法；
+update_wrapper，更新一个包裹（wrapper）函数，使其看起来更像被包裹（wrapped）的函数；
+wraps，可用作一个装饰器，简化调用update_wrapper的过程；
+
+    3. 请使用已学习的装饰器相关知识自己实现functools.lur_cache。
+
+def cache(func):
+    data = {}
+    def wrapper(*args, **kwargs):
+        key = f'{func.__name__}-{str(args)}-{str(kwargs)})'
+        if key in data:
+            result = data.get(key)
+            print('cached')
+        else:
+            result = func(*args, **kwargs)
+            data[key] = result
+            print('calculated')
+        return result
+    return wrapper
+
+
+
+    4. 什么是类型注解并说明其背后的目的。 
+
+类型注解：是利用静态语言特性而生的；但对python语言不做强制性要求的注解；起声明作用；
+1.不做强制性约束（颜色醒目）；
+2.根据变量的方法类型，可以猜出不知道功能的参数类型；
+3.只对函数参数做一个辅助的说明，并不对函数参数进行类型检查；
+4.注解提供给第三方工具，做代码分析，发现隐藏的bug;
+5.函数注解的信息，保存在 annotations 属性中；
+
