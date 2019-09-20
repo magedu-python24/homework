@@ -1,0 +1,111 @@
+1. 什么是高阶函数和柯理化并举例说明。
+    高阶函数：至少满足以下一个条件
+        a.接受一个或多个函数作为参数
+        b.返回一个函数
+        例如：
+            def fn(x):
+                def _fn(y):
+                    return x + y
+                return _fn
+
+    柯里化：将一个接受多参的函数转变成接受一个单一参数的函数,新的函数返回一个以原函数的第二个参数作为参数的函数
+        例如：
+            def add(x, y):
+                return x + y
+            add(1, 3)
+
+            def add(x):
+                def _add(y):
+                    return x + y
+                return _add
+            add(1)(3)
+
+2. 请列出functools包内的每个函数的功能作用。
+    1.functools.cmp_to_key()
+        由于python3中取消了cmp函数，为了在python3中能用cmp函数功能，新增了cop_to_key的用法
+    2.functools.lru_cache(maxsize=128, typed=False)
+        该函数装饰器使用LRU（最近最少使用）缓存算法来缓存相对耗时的函数结果，避免传入相同的参数重复计算。同时，
+        缓存不会无限增长，不用的缓存会被释放。其中maxsize参数用于设置缓存占用的最大字节数，typed参数用于设置
+        将不同类型的缓存结果分开存放。
+    3.functools.total_ordering()
+        这个类装饰器（作用类似于函数装饰器，只是它用于修饰类）用于为类自动生成比较方法，通常来说，开发者是要提供
+        __it__(),__le__(),__gt__(),__ge__()其中之一（最好能提供__eq__()方法）
+    4.functools.partial(func, *args, **keywords)
+        该函数用于为func函数的部分参数指定参数值，从而得到一个转换后的函数，程序以后调用转换后的函数时，就可以少
+        传入那些已指定的参数
+    5.functools.partialmethod(func, *args, **keywords)
+        该函数与上一个函数的含义相同，只不过该函数用于为类中的方法设置参数值
+    6.functools.reduce(function, iterable, [initializer])
+        将初始值（默认为0，可有initializer参数指定）迭代器的当前元素传入function函数，将计算出来的函数结果作为
+        下一次计算的初始值，迭代器的下一个元素再次调用function函数。。。以此类推，知道迭代器的最后一个元素
+    7.functools.singledispatch()
+        该函数装饰器用于实现函数对多个类型进行重载，比如同样的函数名称，为不用的参数的类型提供不同的功能实现。
+        该函数的本质就是根据参数的类型的变换，将函数转向调用不用的函数。
+    8.functools.update_wrapper(wrapper, wrapped, assigned=WARPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
+        对wrapper函数进行包装函数，使之看上去就像wrapped（被包装)函数
+    9.functools.wraps(wrapped, assigned=WRAPPER_ASSIGNMENTS, updated=WRAPPER_UPDATES)
+        该函数装饰器用于修饰包装函数，使包装函数看上去就像wrapped函数
+        functools.update_wrapper和functools.wraps的功能是一样的，只不过前者是函数，因此需要把包装函数作为第一个
+        参数传入；而后者是函数装饰器，因此使用该函数装饰器修饰包装函数即可，无需将包装函数作为第一个参数传入
+
+3. 请使用已学习的装饰器相关知识自己实现functools.lur_cache。
+    import functools
+    import inspect, time, datetime
+
+    def cache(fn):
+        relut_cache = {}
+        @functools.wraps(fn)
+        def _cache(*args, **kwargs):
+            def clear_cache():
+                # 缓存清除
+                start = datetime.datetime.now().timestamp()
+                clear_key = []
+                print(relut_cache)
+                for k,(_, stamp) in relut_cache.items():
+                    if start - stamp > 5:
+                        clear_key.append(k)
+                for i in clear_key:
+                    relut_cache.pop(i)
+
+            def _make_key(args, kwargs):
+                # 签名
+                sig = inspect.signature(fn)
+                params = sig.parameters
+                keys = params.keys()
+                param_dict = {}
+                # 位置传参 关键字传参
+                param_dict.update(zip(keys, args))
+                param_dict.update(kwargs)
+                # 缺省值
+                for k, v in params.items():
+                    if k not in param_dict:
+                        param_dict[k] = v.default
+                # 排序  列表不能作为字典的key，所以要tuple或者字典
+                key = tuple(sorted(param_dict.items()))
+                return key
+            key = _make_key(args, kwargs)
+            clear_cache()
+            # 判断是否在缓存区，用key判断
+            if key not in relut_cache.keys():
+                relut_cache[key] = fn(*args, **kwargs), datetime.datetime.now().timestamp()
+            return relut_cache[key]
+        return _cache
+
+    @cache
+    def add(x=3, y=4):
+        time.sleep(4)
+        return x + y
+
+    print(add(y=4))
+    print(add())
+
+4. 什么是类型注解并说明其背后的目的。
+    类型注解：
+        对函数的参数类型，返回值类型进行注解
+    目的：
+        因为python为动态性语言，变量随时赋值，变量的类型根据赋值的类型而变化。
+        因为是动态态型语言，所以工具不会进行类型编译检查，只有运行的时候，才发现错误
+        所以3.5版本引入类型注解，可以对函数的参数类型和返回值进行注解
+        这样便于第三方工具在代码编写时，进行检查，尽早发现隐藏bug，也便于设计人员进行代码阅读
+
+

@@ -1,0 +1,40 @@
+1. 说明列表的浅拷贝和深拷贝的区别
+    浅拷贝遇到引用类型的时候只复制了引用地址，不会深层复制数据。修改列表的时候复制对象也会改变；
+    深拷贝遇到引用类型会将引用地址和内存数据一同复制，成为一个独立的列表，修改的时候不会影响复制对象
+
+2. 说明列表和元组的相同点和不同点
+    列表和元组都是可迭代对象，可存储类型都一样
+    列表是可变对象，元组是不可变对象
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+    str.format()：
+    str.lower()：返回字符串的小写
+    str.upper(): 返回字符串的大写
+    str.endswith()
+    str.startswith()
+    str.find()
+    str.translate()
+    str.title()
+    str.strip()
+    str.splitlines()
+    str.split()
+    str.rstrip()
+    str.rsplit()
+    str.partition()
+    str.join()
+
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200
+'''

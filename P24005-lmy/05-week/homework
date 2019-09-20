@@ -1,0 +1,68 @@
+1.如何为函数定义keyword-only参数（写出个例子即可）
+    def fn(*y, key=5)
+        lst = list(y)
+        lst.append(key)
+        return lst
+    fn(1, 3, key=5)
+2.什么是LEGB，请解释
+    LEGB即：local，enclosing，global，build-in，表示解析顺序
+        local：函数的变量仅限于函数可见，外部看不到
+        enclosing：必包，嵌套函数中内层函数引用到外层函数的变量
+        global：全局变量，模块命名空间，模块导入时创建，解释器退出时消亡
+        build-in：内建函数变量，python内置模块命名空间
+3.二叉树的性质
+    每个节点最多两颗子树
+        二叉树不存在度数大于2的结点
+    它是有序树，左、右子树都是顺序的，不能交换次序
+    即使某个结点只有一颗子树，也要确定它是左子树还是右子树
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+     1. 运行后提示让用户输入一个数字
+     2. 提示输入操作符（+ - * /）
+     3. 再次提示输入一个数字
+     4. 打印计算结果
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+     6. 尽可能改善用户体验（新需求）
+     代码：
+        def counter(x, opr, y):
+            if opr == '+':
+                rel = x + y
+            elif opr == '-':
+                rel = x - y
+            elif opr == '*':
+                rel = x * y
+            elif opr == '/':
+                rel = x / y
+            return rel
+
+        def num():
+            while True:
+                num = input('please input a number:')
+                if num.isdigit():
+                    return int(num)
+                elif num == '':
+                    return ''
+                else:
+                    print('input error, please again')
+
+        def opr():
+            while True:
+                opr = input('please input operater like +-*/:')
+                if opr in '+-*/':
+                    return opr
+                elif opr == '':
+                    return ''
+                else:
+                    print('operater input error, please again')
+
+        while True:
+            print("anywhere input 'Enter' to exit")
+            x = num()
+            if x == '':
+                break
+            opra = opr()
+            if opra == '':
+                break
+            y = num()
+            if y == '':
+                break
+            print(counter(x, opra, y))

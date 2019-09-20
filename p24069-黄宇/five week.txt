@@ -1,0 +1,79 @@
+1. 如何为函数定义keyword-only参数（写出个例子即可）？
+  def fun(*a,key,**b)
+
+    fun(,key=1,)  
+
+    传入实参的时候，必须用相同的行参名传入
+
+2. 什么是LEGB，请解释
+
+     Local:本地作用域，local命名空间。函数调用时创建，调用完消亡。
+     Enclosing:嵌套函数，实现闭包。
+     Global:全局作用域
+     Build in:python内置模块命名空间
+3. 二叉树的性质
+
+    二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。
+    二叉树的总共最多有2^k-1个结点，每一层最多2^(k-1)个节点，
+
+    n0=n2+1  n0表示度数为0的节点 n2表示度数为2的节点
+
+   满二叉树是完全二叉树，完全二叉树不一定满二叉树
+
+   对于完全二叉树，如果父节点为i，则左孩子2i,右孩子2i+1
+
+   如果2i>n无即无左孩子也无右孩子
+
+   如果2i+1>n肯定无右孩子
+    
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+     1. 运行后提示让用户输入一个数字
+     2. 提示输入操作符（+ - * /）
+     3. 再次提示输入一个数字
+     4. 打印计算结果
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+     6. 尽可能改善用户体验（新需求） 
+
+     def calcuator():
+    order=input('do you want to calcuate:')
+
+
+    if order=='yes':
+      Num1=int(input('please enter Num1'))
+
+      Function=input('please enter function')
+
+      Num2=int(input('please enter Num2'))
+
+
+      if Function=='+':
+    
+
+        print( Num1+Num2)
+
+      if Function=='-':
+
+        print( Num1-Num2)
+
+      if Function=='*':
+
+        print(Num1*Num2)
+
+      if Function=='/':
+          if Num2==0:
+              print('wrong Num2')
+
+          else:
+
+              print( Num1/Num2)
+
+      calcuator()
+
+    if order=='no':
+
+         print('the calcuation is over')
+
+
+
+calcuator()
+
