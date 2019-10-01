@@ -1,0 +1,78 @@
+1. 什么是高阶函数和柯理化并举例说明。
+
+    高阶函数：函数的一个参数是函数   def func1(func2,*args,**warges)
+    柯里化：def func1(fn):
+               def func2(*args,**kwarges):
+                   return fn(*arges, **kwarges)
+               return func1
+    2. 请列出functools包内的每个函数的功能作用。
+
+        reduce: 将初始值（默认为 0，可由 initializer 参数指定）、迭代器的当前元素传入 function 函数，将计算出来的函数结果作为下一次计算的初始值、迭代器的下一个元素再次调用 function 函数……依此类推，直到迭代器的最后一个元素。
+        wraps:作为一个装饰器包装函数，保证‘_moudle_','_name_','等与原函数一致
+        update_wrapper:性能与wraps相同，只是不是装饰器
+
+        partial ：主要是将多参函数的一些参数赋予缺省值，建设参数数量。
+
+        Lru_cache:实现缓存功能
+    3. 请使用已学习的装饰器相关知识自己实现functools.lur_cache。
+
+        import time
+
+def func1(fn):
+    lis1={}
+    def func2(*a,**b):
+
+        lis=[]
+
+        tup1=tuple(a)
+
+
+        tup2=tuple(b)
+      
+        
+        if tup1!=():
+           lis.append(hash(tup1))
+
+        if tup2!=():
+
+           lis.append(hash(tup2))
+
+
+        if lis==[]:
+
+              m=fn(*a,**b)
+
+              return m
+
+        else:
+                
+
+          for i in lis:
+  
+            if i not in lis1.keys() :
+
+                
+
+                m=fn(*a,**b)
+
+                lis1[i]=m
+
+            return lis1[i]
+
+            
+
+    return func2
+
+
+
+@func1
+def add(x=4,y=5):
+    time.sleep(3)
+    return(x+y)
+
+
+print(add(4,5))
+print(add(x=4,y=5))
+    4. 什么是类型注解并说明其背后的目的。
+
+        对于每一个参数以及输出值的类型予以说明，主要用于提醒用户输入正确的数据类型，但是本身无法阻止函数的调用。 
