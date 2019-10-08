@@ -1,0 +1,33 @@
+1. 内置的open函数打开文件有几种模式，它们的区别是什么？
+    open函数打开方式：
+        r：  只读，如果文件不存在，抛异常。如果使用write方法，抛异常
+        w：  只写，如果文件不存在，则创建，如果文件存在，则清空文件内容
+        x：  只写，如果文件不存在，则创建，如果文件存在，抛异常
+        a：  只写，如果文件不存在，则创建，并在尾部追加。如果文件存在，则打开后尾部追加
+        t：  字符流，将文件的字节按照某个字符编码理解，按照字符操作
+        b：  字节流，将文件按照字节理解，与编码无关。二进制模式操作时，字节操作使用bytes类型
+        +：  为r、w、x、a提供确实的读或者写功能。但是获取文件对象依旧按照r、w、x、a自己的特征。+不能单独使用，可以理解它是做功能增强
+
+2. 使用base64解码“bWFnZWR1LmNvbQ==”，使用base64编码”magedu.com”，分别给出它们的解码和编码结果。
+    详见base64解码和base64编码文件
+
+3. 列出本周讲的几种序列化方法，它们各自的特点是什么?
+    序列化方法：
+        pickle：     用于python之间，不能跨语言使用
+            dumps：  对象序列化为bytes对象
+            dump：   独享序列化到文件对象，就是存入文件
+            load：   从bytes对象反序列化
+            loads：  对象反序列化，从文件中读取数据
+        Json：   轻量级的数据交换格式。基于ECMAScript规范，采用完全独立于编程语言的文本格式来存储和表示数据
+            json.dumps：     json编码
+            json.dump：      json编码并存入文件
+            json.loads：     json解码
+            json.load：      json解码，从文件读取数据
+        MessagePack：    基于二进制高效的UI想序列化，比json更快速也更轻巧
+            msgpack.dumps：  msgpack编码
+            msgpack.dump：   msgpack编码并保持到文件
+            msgpack.loads：  msgpack解码
+            msgpack.load：   msgpack解码，从文件中读取数据
+
+4. 写一个脚本实现找到/tmp目录及其子目录下的以.htm结尾的文件，把其后缀名改为.html
+    详见代码文件
