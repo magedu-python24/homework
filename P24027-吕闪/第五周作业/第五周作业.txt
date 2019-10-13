@@ -1,0 +1,102 @@
+第5周作业
+本周（8月19日-8月25日）学习任务及作业：
+请同学们至少完成腾讯课堂如下学习章节：
+【一：章节学习】
+第14节  Python函数(一)定义和参数：    
+        01-函数定义传参和默认值；
+        02-可变参数；
+        03-keyword-only参数和参数解构；
+        04-函数习题打印三角；
+        05-插入排序；
+第15节  Python函数(二)返回值和作用域：
+        01-函数的返回值；
+        02-函数作用域；
+        03-global、nonlocal和闭包；
+        04-默认值的本质；
+        05-LEGB和函数的销毁；   
+第16节  Python函数(三)递归和匿名函数：
+        01-递归；
+        02-递归习题；
+        03-匿名函数、生成器；
+        04-树基本概念；
+        05-内建函数；        
+【二：本周作业】：请同学们把作业提交到Github哦~~提交时间最迟本周日
+1. 如何为函数定义keyword-only参数（写出个例子即可）？
+2. 什么是LEGB，请解释
+3. 二叉树的性质
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+     1. 运行后提示让用户输入一个数字
+     2. 提示输入操作符（+ - * /）
+     3. 再次提示输入一个数字
+     4. 打印计算结果
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+     6. 尽可能改善用户体验（新需求） 
+【三、答案】
+1.keyword-only参数就是关键字传参，是指利用形参的名字来确定输入的参数值，通过此种方式指定形参时，无须与形参的位置完全一致，只需参数name一致即可。
+例如：
+def fun_bmi(person,weight,height):
+    '''
+    定义一个有三个参数的函数fun_bmi
+    :param person: 姓名
+    :param wewight: 体重
+    :param height: 身高
+    '''
+    bmi=weight/(height*height)
+    print(person+"的BMI指数为:" + str(bmi))
+fun_bmi(person="Beack",height=1.6,weight=48)  //指定实参时，顺序与定义时可不一致，但其运行结果与预期是一致的
+2.LEGB含义：
+L —— Local(function)；函数内的名字空间
+E —— Enclosing function locals；外部嵌套函数的名字空间
+G —— Global(module)；函数定义所在模块（文件）的名字空间
+B —— Builtin(Python)；Python内置模块的名字空间
+python作用域的规则是LEGB规则，即LEGB规定了查找一个名称的顺序为：local-->enclosing-->global-->builtin。
+3，二叉树的性质
+(1)二叉树的第i层上最多有2^(i-1)个节点（i>=1）
+(2)深度为k的二叉树，最多有2^(k-1)个节点（i
+(3)叶子节点数-1等于度数为2的节点数
+(4)高度为k的二叉树，至少k个节点
+(5)具有n个节点的深度二叉树的深度为int(Log2n)+1
+另附其他定义：
+树：树是n>=0个元素的集合，n=0时，成为空树
+结点：树中的数据元素
+结点的度：结点拥有子树的树目成为度，记作d(v)
+叶子结点：结点的度为0，称为叶子节点leaf、终端节点、末端节点
+分支节点：节点的度不为0
+树的度就是树内各节点的度的最大值
+树的深度：树的层次（根节点为第一层）的最大值
+二叉树：每个节点最多2棵树，有序树，左右均有顺序，不能交换
+4.
+def add(x, y):
+    return x + y  # 定义相加
+
+
+def subtract(x, y):
+    return x - y  # 定义相减
+
+
+def multiply(x, y):
+    return x * y  # 定义相乘
+
+
+def divide(x, y):
+    return x / y  # 定义相除
+
+
+while True:
+    num1 = float(input('请输入第一个数字'))
+    num2 = float(input('请输入第二个数字'))
+    choice = input("输入你的选择 + - * / >>>")
+    if choice == '+':
+        add_value = add(num1, num2)
+        print(num1, "+", num2, "=", "{:.3}".format(add_value))
+    elif choice == '-':
+        subtract_value = subt1ract(num1, num2)
+        print(num1, "-", num2, "=", "{:.3}".format(subtract_value))
+    elif choice == '*':
+        multiply_value = multiply(num1, num2)
+        print(num1, "*", num2, "=", "{:.3}".format(multiply_value))
+    elif choice == '/':
+        divide_value = divide(num1, num2)
+        print(num1, "/", num2, "=", "{:.3}".format(divide_value))
+    else:
+        print("输入数据格式不正确")

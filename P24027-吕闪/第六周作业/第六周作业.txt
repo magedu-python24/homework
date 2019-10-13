@@ -1,0 +1,82 @@
+本周（8月26日-9月1日）学习任务及作业：
+请同学们至少完成腾讯课堂如下学习章节：
+【一：章节学习】
+第17节  Python高阶函数与装饰器：    
+        01-高阶函数和柯里化；
+        02-无参装饰器；
+        03-带参装饰器；
+第18节  Python类型注解和functools模块：
+        01-类型注解；
+        02-functools之reduce和偏函数；
+        03-lru_cache；  
+第19节  函数综合习题讲解：
+        01-字典扁平化和base64编码实现；
+        02-求最大公共子串；
+        03-装饰器习题cache和命令分发器实现；      
+【二：本周作业】：请同学们把作业提交到Github哦~~提交时间最迟本周日
+    1. 什么是高阶函数和柯理化并举例说明。
+    2. 请列出functools包内的每个函数的功能作用。
+    3. 请使用已学习的装饰器相关知识自己实现functools.lur_cache。
+    4. 什么是类型注解并说明其背后的目的。 
+【三、答案】
+1.高阶函数：
+高阶函数至少满足下面一个条件：
+                             接受一个或多个函数作为参数
+							 输出一个函数
+柯里化：
+将原来接受两个参数的函数变成新的接受一个参数的函数的过程，且新的函数返回一个以原有第二个参数为参数的函数，即z=f(x,y)>>z=f(x)(y)
+2.functools包内的所有函数及功能作用
+(1)
+reduce方法---减少
+from functools import reduce
+(2)partial偏函数--把函数部分的参数固定下来，也就是为部分参数添加了一个固定的默认值
+(3)@functools.lru_cache(maxsize=128,type=False)
+Least-recently-used装饰器  Lru 最少使用，cache缓存
+其中，若maxsize为None,禁用Lru功能，且缓存可以无限制增长，且当maxsize为2的幂时，LRU执行的最好
+其次，如果type=true时，不同类型的函数参数会单独存储
+
+Lru_cache装饰器，通过一个字典缓存被装饰函数的调用和返回值、
+3.from functools import wraps
+import inspect
+
+def mag_cache(fn):
+    local_cache = {}
+    @wraps(fn)
+    def wrapper(*args,**kwargs):
+        #参数处理，构建Key
+
+        sig = inspect.signature(fn)
+        params = sig.parameters  #只读有序字典
+        param_names = [key for key in params.keys()]
+        params_dict= {}
+        for i,v in enumerate(args):
+            k = param_names[i]
+            params_dict[k] = v
+        params_dict.update(kwargs)
+    #缺省值处理
+        for k,v in params.items():
+            if k not in params_dict.keys():
+                params_dict[k] = v.default
+
+        key = tuple(sorted(params_dict.items()))
+
+#判断是否需要缓存
+        ret = fn(*args,**kwargs)
+        return key,ret
+    return wrapper
+@mag_cache
+def add(x,y,z=6):
+    return x+y+z
+
+result = []
+result.append(add(4,5))
+
+for x in result:
+    print(x)
+4.类型注解：为了解决python动态语言变量可随时被赋值&赋值为不同类型的弊端，对函数的参数、返回值进行类型注解
+函数注解的信息在_annotations_属性中，它是一个字典，使用inspet模块
+inspet模块用于获取对象信息的函数，可以检查函数、类、类型检查
+      signature(callable),获取签名（包括函数名、参数类型、他所在的类和名称空间及其他信息）
+import inspet
+inspet.signature()
+
