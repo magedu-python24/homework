@@ -1,0 +1,67 @@
+【一：章节学习】
+20、Python文件IO(一)文件操作：    
+        1、文件编码；
+        2、文件的模式；
+        3、文件指针操作；
+        4、缓冲区；
+        5、文件对象的读写方法
+        6、上下文管理
+21、 Python文件IO(二)路径操作：
+        1、习题base64解码；
+        2、习题命令分发器、copy和单词统计；
+        3、StringIO和BytesIO和os.path；
+        4、Path对象基本操作
+        5、通配和文件操作
+22、Python文件IO(三)   高级文件操作和序列化：
+        1、shutil模块使用；
+        2、csv模块使用；
+        3、ini文件操作；
+        4、序列化和反序列化及pickle；
+        5、msgpack使用
+【二：本周作业】：请同学们把作业提交到Github哦~~
+
+1. 内置的open函数打开文件有几种模式，它们的区别是什么？
+解：
+r 	以读方式打开
+w 	以写方式打开；
+a 	以追加模式打开 (从 EOF 开始, 必要时创建新文件)
+r+ 	以读写模式打开
+w+ 	以读写模式打开 (参见 w )
+a+ 	以读写模式打开 (参见 a )
+rb 	以二进制读模式打开
+wb 	以二进制写模式打开 (参见 w )
+ab 	以二进制追加模式打开 (参见 a )
+rb+ 	以二进制读写模式打开 (参见 r+ )
+wb+ 	以二进制读写模式打开 (参见 w+ )
+ab+ 	以二进制读写模式打开 (参见 a+ )
+
+
+2. 使用base64解码“bWFnZWR1LmNvbQ==”，使用base64编码”magedu.com”，分别给出它们的解码和编码结果。
+解：
+magedu.com
+bWFnZWR1LmNvbQ==
+
+3. 列出本周讲的几种序列化方法，它们各自的特点是什么?
+解：
+模块名称 	描述 	提供的api
+json 	用于实现Python数据类型与通用（json）字符串之间的转换; 不是所有地方都用，json效率低下 	dumps() 、dump() 、loads() 、 load()
+pickle 	用于实现Python数据类型与Python特定二进制格式之间的转换；不是一种很高效的协议序列化传输方案 	dumps()、dump()、loads()、load()、
+shelve 	专门用于将Python数据类型的数据持久化到磁盘，shelve是一个类似dict的对象，操作十分便捷 	open()
+msgpack 	像JSON一样，跨平台、跨操作系统、在多种语言之间使用，高效压缩 	packb、unpackb、pack、unpack、dumps、loads
+
+
+4. 写一个脚本实现找到/tmp目录及其子目录下的以.htm结尾的文件，把其后缀名改为.html ；
+
+from pathlib import Path
+
+p = Path('')
+#p.parent.mkdir(parents=True,exist_ok=True)
+print(p.absolute())
+for i in p.parent.glob('**/*.htm'):
+    print(i)
+#----------------------------------
+C:\Users\Administrator\Desktop\mage_edu\21 Python文件IO(二)文件操作
+tmp\a.htm
+tmp\b.htm
+tmp\a\b.htm
+tmp\a\c.htm
