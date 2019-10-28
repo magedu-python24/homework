@@ -1,0 +1,90 @@
+1.根据本周异常相关视频,总结try/except/else/finally的用法及如何自定义异常
+   格式:
+       try:
+           可能出现异常的代码
+       except A:
+           异常A的处理代码
+       except B:
+           异常B的处理代码
+       except:
+           其他异常的处理代码
+       else:
+           如果没有异常执行的代码
+       finally: 
+           无论是否发生异常,都会执行的代码
+
+   自定义异常:
+       可以定义一个类继承Exception,然后使用ralse语句抛出 
+       class MyException(Exception):
+          pass
+       raise MyException
+
+2.实现插件化开发的demo
+    module.py
+        class M:
+            def show(self):
+                print('I am module')
+    test.py
+        import importlib
+        
+        
+        if __name__ == '__main__':
+            mod = importlib.import_module('module')
+            M = getattr(mod,'M')
+            m = M()
+            a.show()
+
+
+3.列出视频中讲到的git支持各个命令及说明
+    clone       克隆仓库到一个新目录
+
+    init        创建一个空的 Git 仓库或重新初始化一个已存在的仓库
+
+    add         添加文件内容至索引
+        add .   代表当前目录,这条命令将递归添加当前目录及其子目录所有文件
+                只要是目录,就会递归添加该目录下的文件和子目录
+
+    mv          移动或重命名一个文件、目录或符号链接
+     src dest 改名,直接把改名的改动放入暂存区
+
+    reset       重置当前 HEAD 到指定状态
+         reset 列出将被reset的文件
+         reset file 重置文件的暂存区,和上一次commit一致,工作区不影响
+         reset --hard 重置暂存区与工作区,与上一次commit保持一致
+
+    rm          从工作区和索引中删除文件
+        rm file 会同时在版本库和工作目录中删除文件,真删除
+        rm --cached file 将文件从暂存转成未暂存,从版本库中删除,但不删除工作目录的该文件,即文件恢复成不追踪的状态
+
+    log         显示提交日志
+
+    status      显示工作区状态
+          [-s 短格式输出]    
+
+    branch      列出、创建或删除分支
+
+    checkout    切换分支或恢复工作区文件
+            checkout 列出暂存区可以被检出的文件
+            checkout file 从暂存区检出文件到工作区,就是覆盖工作区文件,可指定检出的文件。但是不清除stage
+            checkout commit 检出某个commit的指定文件到暂存区和工作区
+            checkout . 检出暂存区的所有文件到工作区
+
+    commit      记录变更到仓库
+          [-m 设置提交信息,省略会弹出vim编辑窗口]
+          [-a --all 会把所有跟踪的文件的改动自动暂存,然后commit]
+
+    diff        显示提交之间、提交和工作区之间等的差异
+        diff    查看被跟踪文件未暂存的修改,比较暂存区和工作区
+        diff --cached  查看被跟踪文件暂存的修改,比较暂存区和上一次commit的差异
+        diff HEAD  查看被跟踪文件,比较工作区和上一次commit的差异。HEAD指代最后一次commit
+            HEAD
+                HEAD可以看做是一个游标,指向当前分支最后一次提交。
+                HEAD的值存储在.git/HEAD中。
+                HEAD,指代最后一次commit
+                HEAD^,指代上一次提交
+                HEAD^^,指代上上一次提交
+                上n次提交,表示为HEAD~n
+
+    pull        获取并整合另外的仓库或一个本地分支
+    push        更新远程引用和相关的对象
+
