@@ -1,0 +1,41 @@
+1. 什么是类和实例并说明他们之间的关系
+    类是一类事物的共同特征的集合，包含属性和方法
+    实例是类的具体事物
+
+    类是抽象的一类集合
+    实例是类的一种具体实现
+
+2. 类的实例方法、类方法和静态分别如何定义举例说明，并总结它们的应用场景
+    类定义：
+        class Person:   # 定义类
+            age = 5 # 定义类属性
+
+            def add_name(self, name):   # 定义实例方法
+                print(name)
+
+            @classmethod
+            def class_method(cls):  # 定义类方法
+                print(cls.__name__, 'method')
+
+            @staticmethod   # 定义静态方法
+            def static_method():
+                print('static_method')
+
+        tom = Person()
+        print(tom.age)
+        tom.add_name('tom')
+        tom.static_method()
+        tom.class_method()
+
+        实例方法：使用时需要实例化
+        类方法：使用时，cls必须为类对象
+        静态方法：类似一般函数，只是归于类管理调用
+
+3. MRO是什么，描述其查找顺序
+    经典算法：深度优先，从左到右
+    新式算法：经典算法升级，深度优先，重复的只保留最后一个
+    C3算法：类创建时，计算出一个MRO的有序列表，以解决多继承的二义性
+
+4. Mixin是什么，描述其应用场景
+    mixin：将其他的类混合到当前类中，同时带来新的类属性和方法
+    应用场景：当的类的属性或者方法，不能满足使用要求时，可以通过mixin，混进一个（父类），从而通过混进的父类，增加新的属性和功能
