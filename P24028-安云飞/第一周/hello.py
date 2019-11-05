@@ -17,12 +17,12 @@
 #         if j <= i:
 #             line = line + ("{0}*{1}={2}".format(str(j), str(i), (str(i * j) + "\t")))
 #     print(line)
-
-
+#
+#
 # for i in range(1, 10):
 #     line = " "
 #     for j in range(1, i+1):
-#         line += '{}+{}={}\t'.format(j, i, i * j)
+#         line += '{}*{}={}\t'.format(j, i, i * j)
 #     print(line)
 
 # for i in range(1, 10):
@@ -73,9 +73,9 @@
 #     print(line)
 
 
-l = list()
-
-for i in range(3, 31):
-    if i % 3 == 0:
-        l.append(i)
-print(l)
+# l = list()
+#
+# for i in range(3, 31):
+#     if i % 3 == 0:
+#         l.append(i)
+# print(l)
