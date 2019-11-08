@@ -1,0 +1,288 @@
+﻿1. 说明列表的浅拷贝和深拷贝的区别
+浅拷贝： lst0.append([1,2,3]) lst1 = lst0.copy() 如果遇到引用类型（列表或指针），影子拷贝只是复制了一个引用（指针地址），
+       lst0[-1]和lst1[-1]保存的是相同的内存地址，修改lst0[-1]，lst1[-1]也会变。如果没有引用类型则两个对象互不影响	
+深拷贝：lst2 = copy.deepcopy(lst0) 分配一块新的地址，lst0有引用类型的话适用深拷贝
+	
+2. 说明列表和元组的相同点和不同点
+元祖和列表都是可迭代对象
+元祖里的值不可修改，列表是可以修改的
+
+3. 请写出字符串支持的所有方法及说明（例如: lower 返回字符串的小写）
+    help(str)
+
+S.capitalize() -> str   
+    Return a capitalized version of S, i.e. make the first character
+    have upper case and the rest lower case.
+	把字符串的第一个字符大写
+
+S.casefold() -> str   
+    Return a version of S suitable for caseless comparisons.
+	返回字符串的小写
+
+S.center(width[, fillchar]) -> str   
+    Return S centered in a string of length width. Padding is
+    done using the specified fill character (default is a space)
+	返回一个原字符串居中,并使用fillchar（默认空格）填充至长度 width 的新字符串
+
+S.count(sub[, start[, end]]) -> int    
+    Return the number of non-overlapping occurrences of substring sub in
+    string S[start:end].  Optional arguments start and end are
+    interpreted as in slice notation.
+	返回sub在原字符里面出现的次数，如果start或者 end指定则返回指定范围内sub出现的次数
+
+S.encode(encoding='utf-8', errors='strict') -> bytes    
+    Encode S using the codec registered for encoding. Default encoding
+    is 'utf-8'. errors may be given to set a different error
+    handling scheme. Default is 'strict' meaning that encoding errors raise
+    a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+    'xmlcharrefreplace' as well as any other name registered with
+    codecs.register_error that can handle UnicodeEncodeErrors.
+	以 encoding 指定的编码格式编码字符串，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace'
+
+S.endswith(suffix[, start[, end]]) -> bool
+    
+    Return True if S ends with the specified suffix, False otherwise.
+    With optional start, test S beginning at that position.
+    With optional end, stop comparing S at that position.
+    suffix can also be a tuple of strings to try.
+	检查字符串是否以 suffix 结束，如果 start 或者 end 指定则检查指定的范围内是否以 suffix 结束，如果是，返回 True,否则返回 False.
+
+S.expandtabs(tabsize=8) -> str    
+    Return a copy of S where all tab characters are expanded using spaces.
+    If tabsize is not given, a tab size of 8 characters is assumed.
+	把字符串中的 tab 符号转为空格，tab 符号默认的空格数是 8
+
+S.find(sub[, start[, end]]) -> int   
+    Return the lowest index in S where substring sub is found,
+    such that sub is contained within S[start:end].  Optional
+    arguments start and end are interpreted as in slice notation.   
+    Return -1 on failure.
+	检测sub是否包含在字符串中，如果 start 和 end 指定范围，则检查是否包含在指定范围内，如果是则返回索引值，否则返回-1
+
+S.format(*args, **kwargs) -> str   
+    Return a formatted version of S, using substitutions from args and kwargs.
+    The substitutions are identified by braces ('{' and '}').
+	执行字符串格式化操作，替换字段使用{}分隔，如'{0}, {1}, {2}'.format('a', 'b', 'c')
+
+S.format_map(mapping) -> str   
+    Return a formatted version of S, using substitutions from mapping.
+    The substitutions are identified by braces ('{' and '}').
+	执行字符串格式化操作，替换字段使用{}分隔，同S.format(**mapping)
+
+S.index(sub[, start[, end]]) -> int    
+    Like S.find() but raise ValueError when the substring is not found.
+
+S.isalnum() -> bool    
+    Return True if all characters in S are alphanumeric
+    and there is at least one character in S, False otherwise.
+	如果 string 至少有一个字符并且所有字符都是字母或数字则返回 True,否则返回 Fals
+
+S.isalpha() -> bool   
+    Return True if all characters in S are alphabetic
+    and there is at least one character in S, False otherwise.
+	如果 string 至少有一个字符并且所有字符都是字母则返回 True,否则返回 False
+
+S.isdecimal() -> bool   
+    Return True if there are only decimal characters in S,False otherwise.		
+    如果 string 只包含十进制数字则返回 True 否则返回 False
+
+S.isdigit() -> bool    
+    Return True if all characters in S are digits
+    and there is at least one character in S, False otherwise.
+	如果 string 只包含数字则返回 True 否则返回 False.
+
+S.isidentifier() -> bool    
+    Return True if S is a valid identifier according
+    to the language definition.
+    Use keyword.iskeyword() to test for reserved identifiers
+    such as "def" and "class".
+	如果 string 是一个标识符则返回 True 否则返回 False.
+
+S.islower() -> bool    
+    Return True if all cased characters in S are lowercase and there is
+    at least one cased character in S, False otherwise.
+	如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回 True，否则返回 False
+
+S.isnumeric() -> bool    
+    Return True if there are only numeric characters in S,
+    False otherwise.
+	如果 string 中只包含数字字符，则返回 True，否则返回 False
+
+S.isprintable() -> bool    
+    Return True if all characters in S are considered printable in repr() or S is empty, False otherwise.
+	如果S中的所有字符在repr()中都是可打印的或者S为空，则返回True，否则返回False。
+
+S.isspace() -> bool    
+    Return True if all characters in S are whitespace
+    and there is at least one character in S, False otherwise.
+	如果 string 中只包含空格(至少有一个空格)，则返回 True，否则返回 False
+
+S.istitle() -> bool    
+    Return True if S is a titlecased string and there is at least one
+    character in S, i.e. upper- and titlecase characters may only
+    follow uncased characters and lowercase characters only cased ones.
+    Return False otherwise.
+	如果 string 是标题化的(所有单词都是以大写开始，其余字母均为小写见 title())则返回 True，否则返回 False
+
+S.isupper() -> bool    
+    Return True if all cased characters in S are uppercase and there is
+    at least one cased character in S, False otherwise.
+	如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回 True，否则返回 False
+
+S.join(iterable) -> str    
+    Return a string which is the concatenation of the strings in the
+    iterable.  The separator between elements is S.
+	以 S 作为分隔符，将 iterable 中所有的元素合并为一个新的字符串
+
+S.ljust(width[, fillchar]) -> str    
+    Return S left-justified in a Unicode string of length width. Padding is
+    done using the specified fill character (default is a space).
+	返回一个原字符串左对齐,并使用fillchar（默认空格）填充至长度 width 的新字符串
+
+S.lower() -> str    
+    Return a copy of the string S converted to lowercase.
+	返回字符串的小写
+
+S.lstrip([chars]) -> str   
+    Return a copy of the string S with leading whitespace removed.
+    If chars is given and not None, remove characters in chars instead.
+	截掉 S 左边的空格
+
+S.partition(sep) -> (head, sep, tail)    
+    Search for the separator sep in S, and return the part before it,
+    the separator itself, and the part after it.  If the separator is not
+    found, return S and two empty strings.
+	从 sep 出现的第一个位置起,把字符串 S 分成一个3元素的元组(head, sep, tail),如果 S 中不包含sep 则 head == string.
+
+S.replace(old, new[, count]) -> str    
+    Return a copy of S with all occurrences of substring
+    old replaced by new.  If the optional argument count is
+    given, only the first count occurrences are replaced.
+	把 S 中的 old 替换成 new,如果 count 指定，则替换不超过 count 次
+
+S.rfind(sub[, start[, end]]) -> int    
+    Return the highest index in S where substring sub is found,
+    such that sub is contained within S[start:end].  Optional
+    arguments start and end are interpreted as in slice notation.    
+    Return -1 on failure.
+	同find()函数，不过是从右边开始查找
+	
+S.rindex(sub[, start[, end]]) -> int    
+    Like S.rfind() but raise ValueError when the substring is not found.
+	同index()，不过是从右边开始
+
+S.rjust(width[, fillchar]) -> str    
+    Return S right-justified in a string of length width. Padding is
+    done using the specified fill character (default is a space).
+	返回一个原字符串右对齐,并使用fillchar（默认空格）填充至长度 width 的新字符串
+
+S.rpartition(sep) -> (head, sep, tail)    
+    Search for the separator sep in S, starting at the end of S, and return
+    the part before it, the separator itself, and the part after it.  If the
+    separator is not found, return two empty strings and S.
+	同partition()函数,不过是从右边开始查找
+
+S.rsplit(sep=None, maxsplit=-1) -> list of strings
+    
+    Return a list of the words in S, using sep as the
+    delimiter string, starting at the end of the string and
+    working to the front.  If maxsplit is given, at most maxsplit
+    splits are done. If sep is not specified, any whitespace string
+    is a separator.
+	以sep为分隔符切割S返回列表，maxsplit如果有值，从右开始最大的切割次数，切割成maxsplit+1个字符串
+
+S.rstrip([chars]) -> str    
+    Return a copy of the string S with trailing whitespace removed.
+    If chars is given and not None, remove characters in chars instead.
+	删除字符串末尾的空格.
+
+S.split(sep=None, maxsplit=-1) -> list of strings    
+    Return a list of the words in S, using sep as the
+    delimiter string.  If maxsplit is given, at most maxsplit
+    splits are done. If sep is not specified or is None, any
+    whitespace string is a separator and empty strings are
+    removed from the result.
+	同rsplit（），从左开始切割
+
+S.splitlines([keepends]) -> list of strings    
+    Return a list of the lines in S, breaking at line boundaries.
+    Line breaks are not included in the resulting list unless keepends
+    is given and true.
+	按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。
+
+S.startswith(prefix[, start[, end]]) -> bool    
+    Return True if S starts with the specified prefix, False otherwise.
+    With optional start, test S beginning at that position.
+    With optional end, stop comparing S at that position.
+    prefix can also be a tuple of strings to try.
+	检查字符串是否是以 prefix 开头，是则返回 True，否则返回 False。如果start 和 end 指定值，则在指定范围内检查
+
+S.strip([chars]) -> str    
+    Return a copy of the string S with leading and trailing
+    whitespace removed.
+    If chars is given and not None, remove characters in chars instead.
+	在 S 上执行 lstrip()和 rstrip()
+
+S.swapcase() -> str    
+    Return a copy of S with uppercase characters converted to lowercase
+    and vice versa.
+	翻转 S 中的大小写
+
+S.title() -> str    
+    Return a titlecased version of S, i.e. words start with title case
+    characters, all remaining cased characters have lower case.
+	返回一个标题版字符串，开头大写后面小写
+
+S.translate(table) -> str    
+    Return a copy of the string S in which each character has been mapped
+    through the given translation table. The table must implement
+    lookup/indexing via __getitem__, for instance a dictionary or list,
+    mapping Unicode ordinals to Unicode ordinals, strings, or None. If
+    this operation raises LookupError, the character is left untouched.
+    Characters mapped to None are deleted.
+	根据 table 给出的表(包含 256 个字符)转换 S 的字符
+
+S.upper() -> str    
+    Return a copy of S converted to uppercase.
+	转换 S 中的小写字母为大写
+
+S.zfill(width) -> str    
+    Pad a numeric string S with zeros on the left, to fill a field
+    of the specified width. The string S is never truncated.
+	返回长度为 width 的字符串，原字符串 string 右对齐，前面填充0
+
+4. 使用选择排序算法实现排序[3, 5, 1, 7, 9, 6, 8]
+
+lst = [3, 5, 1, 7, 9, 6, 8]
+for j in range(len(lst)):
+    minValue = lst[0]
+    minIndex = 0
+    for i in range(len(lst)-j):
+        if lst[i] < minValue:
+            minValue = lst[i]
+            minIndex = i        
+    lst[minIndex] = lst[i]
+    lst[i] = minValue
+print(lst)
+
+5. 有如下一个字符串变量logs，请统计出每种请求类型的数量（提示：空格分割的第2列是请求类型），得到如下输出：
+POST 2
+GET 3
+下边是logs变量：
+logs = '''
+111.30.144.7 "POST /mock/login/?t=GET HTTP/1.1" 200 
+111.30.144.7 "Get /mock/users/?t=POST HTTP/1.1" 200 
+111.13.100.92 "Post /mock/login/ HTTP/1.1" 200 
+223.88.60.88 "GET /mock/users/?t=POST HTTP/1.1" 200 
+111.30.144.7 "GET /mock/users/ HTTP/1.1" 200 
+''' 
+
+postNum = 0
+getNum = 0
+for line in logs.strip().splitlines():
+    line = line.split('"')
+    line = line[1].split(' ')
+    if line[0].strip().lower() == 'post':postNum += 1
+    if line[0].strip().lower() == 'get':getNum += 1
+print('{} {}'.format('POST',postNum))
+print('{} {}'.format('GET',getNum))
