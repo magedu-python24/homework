@@ -1,0 +1,75 @@
+1. 什么是杨辉三角和转置矩阵（文字说明即可）？
+杨辉三角，是二项式系数在三角形中的一种几何排列。
+每行端点与结尾的数为1，第n行的数字有n项，每个数等于它上方两数之和，每行数字左右对称，由1开始逐渐变大。
+
+转置矩阵，设A为m*n阶矩阵，转换成n*m矩阵，此矩阵叫做A的转置矩阵。
+
+2. 说明列表和Set集合的相同点和不同点。
+相同点：都是可变类型
+不同点：
+    1、set为无序的、不重复的元素的集合，因为无序所以set集合取得元素只能for循环。
+    2、list是有序且元素不唯一，可以根据索引进行切片
+3. 请写出Set集合支持的所有方法及说明（例如：add 向Set集合中添加一个元素）
+    add 向Set集合中添加一个元素如果已经存在则不影响
+    clear 移除集合里的所有元素
+    copy  浅拷贝一个集合
+    difference 返回多个集合的差集，由所有属于A且不属于其他集合的元素组成的集合
+    difference_update 获取和多个集合的差集就地修改（-=）
+    discard 移除一个元素，元素不存在则什么都不做
+    intersection 返回和多个集合的交集
+    intersection_update 获取和多个集合的交集并就地修改
+    isdisjoint 判断当前集合和另一个集合没有交集则返回true
+    issubset  判断当前集合是否是另一个集合的子集（<=）
+    issuperset  判断当前集合是否是另一个集合的超集（>=）
+    pop  移除并返回任意的元素，空集返回KeyError异常
+    remove  从set中移除一个元素，元素不存在，抛出KeyError异常
+    symmetric_difference  返回和另一个集合的差集 由所有不属于A和B的交集元素组成的集合
+    symmetric_difference_update 返回和另一个集合的差集并就地修改
+    union  并集哦返回和多个集合合并后的新的集合 或运算
+    update  和多个集合合并，就地修改 （|=）    
+
+4. 请写出字典支持的所有方法及说明（例如：pop 从字典中移除指定的key并返回其value）
+    D.clear() -> None.  清楚字典里的所有元素
+    D.copy() -> a   浅拷贝一个字典
+    dict.fromkeys(iterable, value=None, /) 生成一个字典，iterable为key，value为值
+    D.get(k[,d])  返回k对应的值value，k不存在返回缺省值，没有缺省值返回none
+    D[k]  返回k对应的值value，k不存在抛出KeyError异常
+    D.items() 返回可遍历的（键、值）元祖数组（无序的）
+    D.keys() 返回可遍历的（键）元祖数组（无序的）
+    D.pop(k[,d]) key存在，移除它，并返回它的value。key不存在，返回给定的default，
+                 default未设置，key不存在则抛出KeyError异常
+
+5. 请写出Python内建函数及说明（参考：https://docs.python.org/3/library/functions.html）
+   abs(x) 返回一个数字的绝对值
+   max() 返回可迭代对象或多个参数中的最大值
+   min() 返回可迭代对象或多个参数中的最小值
+   round(x) 四舍六入五取偶
+   pow(x,y) 等价于x**y
+   range([start,]stop[,step]) 从start开始到stop-1结束步长为step的可迭代对象。start缺省值为0，step缺省值为1
+   divmod(x,y) 等价于tuple(x//y,x%y)取余
+   sum(iterable[,start]) 对可迭代对象的所有数值元素求和  sum(range(1,100,2))
+   all(iterable) 如果iterable的所有元素都是真则返回true否则返回false
+   any(iterable) 如果iterable的任何元素为真则返回true否则返回false
+   ascii(object) 返回包含一个可打印表示的对象的字符串，但字符串中的非ASCII（non-ASCII）字符通过使用\x,\u或\U转义符进行转义。
+              生成的字符串与Python 2中的repr（）的返回值相近。
+   Breakpoint()  调用sys.breakpointhook()直接传递参数，在调试器中输出信息
+   id()   返回对象的唯一标识，CPython返回内存地址
+   hash()   返回一个对象的哈希值
+   type() 返回对象的类型
+   float() int() bin() hex() oct() bool() list() tuple() dict() set() complex() bytes() bytearray() 类型转换
+   input() 接收用户输入，返回一个字符串
+   print() 打印输出，默认使用空格分割、换行结尾，输出到控制台
+   len() 对象长度，返回一个集合类型的元素个数
+   isinstance(cls, class_or_tuple) 判断类型cls是否是某种类型的子类或元组中列出的某个类型的子类
+   issubclass(bool,int)
+   chr(i) 给一定范围内的一个整数返回对应的字符
+   ord(c) 给一个字符返回对应的整数
+   sorted(iterable[,key][,reverse]) 返回一个新的列表，默认升序 ，reverse 反转
+   reverse(seq) 返回一个翻转元素的迭代器
+   enumerate(seq,start = 0) 迭代一个序列，返回索引数字和元素构成的二元组，start表示索引开始的数字，默认是0
+   iter(iterable) 将一个可迭代对象封装成一个迭代器
+   next(iterator[,default])  对一个迭代器取下一个元素。如果全部元素都取过了，再次next会抛StopIteration异常
+   zip(*iterables)拉链函数,像拉链一样，把多个可迭代对象合并在一起，返回一个迭代器
+                  将每次从不同对象中取到的元素合并成一个元组
+
+备注：本周没有代码作业，这些都是Python的基础，即使有写方法你感觉没有什么用平时确实也用不到，但请了解他们，知道有这么个东西存在。
