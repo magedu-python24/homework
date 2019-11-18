@@ -1,5 +1,5 @@
 1. 如何为函数定义keyword-only参数（写出个例子即可）？
-    def fn(a,*args,**kwargs,x=1,y=2):
+    def fn(a, *args, x, y=1, **kwargs):
         pass
 
 2. 什么是LEGB，请解释
