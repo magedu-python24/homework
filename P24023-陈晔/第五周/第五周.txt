@@ -1,0 +1,52 @@
+1. 如何为函数定义keyword-only参数（写出个例子即可）？
+    如果在一个星号参数后，或者一个位置可变参数后出现的普通参数，实际上已经不是普通的参数，而是keyword-only参数（写出个例子即可）？
+    def fn(a,*,x,y) a是普通参数，*号参数后面x、y是keyword-only参数。 
+    fn(1,2,3,y = 8, x = 7) x、y实参必须指定。
+2. 什么是LEGB，请解释
+    使用的是LEGB规则，表示的是Local -> Enclosed -> Global -> Built-in，其中的箭头方向表示的是搜索顺序。
+    Local 可能是在一个函数或者类方法内部。
+    Enclosed 可能是嵌套函数内，比如说 一个函数包裹在另一个函数内部。
+    Global 代表的是执行脚本自身的最高层次。
+    Built-in 是Python为自身保留的特殊名称。
+    因此，如果某个name:object映射在局部(local)命名空间中没有找到，接下来就会在闭包作用域(enclosed)进行搜索，
+    如果闭包作用域也没有找到，Python就会到全局(global)命名空间中进行查找，最后会在内建(built-in)命名空间搜索
+    （注：如果一个名称在所有命名空间中都没有找到，就会产生一个NameError）。
+3. 二叉树的性质
+    a.二叉树第i层上的结点数目最多为2(i - 1)个(i>=1).
+    b.深度为k的二叉树，至多有2**k - 1个结点.
+    c.包含n个结点的二叉树的高度至少为log2（n+1）.
+    d.在任意一颗二叉树中，若终端结点的个数为n0，度数（结点拥有的子树的数目）为2的节点数为n2，则有n0 = n2 + 1
+        二叉树除了根结点，其余结点都有一个分支，总分支数为n0+n1+n2-1，n1为度数为1的结点总数
+        分支数还等于n0*0+n1*1+n2*2 , n2是2分支结点所以乘以2,2*n2+n1.
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+     1. 运行后提示让用户输入一个数字
+     2. 提示输入操作符（+ - * /）
+     3. 再次提示输入一个数字
+     4. 打印计算结果
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+     6. 尽可能改善用户体验（新需求）
+     
+print("提示：输入q表示退出程序、c清除数据重新输入; enter键结束输入")
+while 1:
+    i = input("请输入数字：")
+    if i.lower() == 'q':break 
+    if i.lower() == 'c':continue
+
+    s = input("请输入运算符(+ - * /)：")
+    if i.lower() == 'q':break
+    if i.lower() == 'c':continue
+
+    j = input("请输入数字：")
+    if i.lower() == 'q':break
+    if i.lower() == 'c':continue
+
+    if s == '+':
+        result = int(i) + int(j)
+    if s == '-':
+        result = int(i) - int(j)
+    if s == '*':
+        result = int(i) * int(j)
+    if s == '/':
+        result = int(i) / int(j)
+
+    print('{0} {1} {2} = {3}'.format(i,s,j,result))
