@@ -1,0 +1,40 @@
+1. js内置的数据类型有哪些？
+2. 箭头函数与普通函数有什么区别？
+3. 列举可能影响this指向的情况
+4. 写一个Promise的例子
+
+1. js内置的数据类型有哪些？
+
+number: 整型和浮點型
+boolean: true和false
+string:字符串
+null:一個值null
+undefined:變量聲明未賦值
+symbol:ES6的新類型
+object:是基本類型的複合類型，是容器
+
+
+2. 箭头函数与普通函数有什么区别？
+
+普通函數：
+const add function (x,y) { return x+y };
+
+箭頭函數：
+(x,y)=> x + y
+
+
+3. 列举可能影响this指向的情况
+
+在object裏，函數套函數，裏面函數的this是全局變量，所以用bind來綁定
+
+4. 写一个Promise的例子
+
+var myPromise = new Promise((resolve,reject) => {
+	resolve('resolve');
+	reject('reject');
+})
+
+myPromise.then(
+	value => console.log(1,value),
+	reason => console.log(2,reason))
+	
