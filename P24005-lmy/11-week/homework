@@ -1,0 +1,96 @@
+1. 根据本周异常相关视频，总结try/except/else/finally的用法及如何自定义异常
+    try基本语法：
+        try:
+            <语句块>  # 运行代码
+        except <异常类>:
+            <语句块>   # 异常捕获
+        except <异常类> as <变量名>：
+            <语句块>   # 异常捕获，并赋给变量名
+        else：
+            <语句块>   # 如果没有异常发生，则执行语句块
+        finally:
+            <语句块>   # 退出try语句时，一定会执行的语句块
+    一般父类的异常尽可能往下写，当异常无法捕获时，则该线程退出
+
+    自定义异常类型：
+        class MyException(Exception):pass
+
+    要求：定义的异常类型，一定要继承与异常类
+
+2. 实现个插件化开发的demo
+    插件化开发：通过编程的方式，动态的导入模块
+    from importlib import import_module
+
+    def plugin_load(plugin_name, sep=':'):
+        m, c = plugin_name.split(sep)
+        mod = import_module(m)
+        cls = getattr(mod, c)
+        return cls
+
+    if __name__ == '__main__':
+        a = plugin_load('test:A')
+        a.show()
+
+
+3. 列出视频中讲到的git支持各个命令及说明
+    git init
+        初始化一个版本库，即在当前目录中增加一个git目录
+    git add <文件名>
+        将指定文件名增加到索引中，建立版本库与文件的跟踪管理关系
+        如果文件名是‘.’，则表示将当前目录及其子目录的所有文件都添加到索引中（递归）
+    git status
+        查看状态， -s：短格式输出
+    git commit
+        提交到本地版本库。
+        -m 后面跟本次日志消息，必须填写
+        -a 索引中的所有文件
+        --amend 增补。修改最新的一次commit提交信息
+    git log
+        查看版本库中提交的历史信息
+    git diff
+        查看被跟踪的文件与未暂存的差异，比较暂存区与工作区
+    git diff --cached
+        查看被跟踪文件按暂存的修改，比较暂存区与上一次commit的差异
+    git diff HEAD
+        查看被跟踪文件，比较工作区与上一次commit的差异。
+        HEAD是指最后一次commit
+        HEAD看作一个游标。指向当前分支最后一次提交
+        HEAD^，指代上一次提交
+        HEAD^^，指代上上一次提交
+        HEAD~n，指代上n次提交
+    git checkout
+        列出暂存区可以被检出的文件
+    git checkout file
+        从暂存区检出文件到工作区，及时覆盖工作区文件，可以指定检出的文件，但是不清除stage
+    git checkout commit file
+        检出某个commit的指定文件到暂存区和工作区
+    git checkout .
+        检出暂存区的所有文件到工作区
+    git reset
+        列出将被reset的文件
+    git reset file
+        重置文件的暂存区，和上一次commit一致，工作区不影响
+    git reset --hard
+        重置暂存区与工作区，与上一次commit保持一致
+    git reflog
+        显示commit的信息，只要HEAD发送变化，就可以在这里看到
+    git reset commit
+        重置当前峰值的HEAD为指定的commit，同时重置暂存区，但工作区不变
+    git reset --hard [commit]
+        重置当前分支的HEAD为指定的commit，同时重置暂存区和工作区，与指定的commit一致
+    git reset --keep [commit]
+        重置当前DEAD为指定的commit，但保持暂存区和工作区不变
+    git mv src dest
+        改名，直接把改名的改动放入暂存区
+    git rm file
+        同时在版本库和工作目录中删除文件，真删除
+    git rm --cached file
+        将文件从暂存转成未暂存，从版本库中删除，但不删除工作目录的该文件，即文件恢复成不跟踪的状态
+    git remote
+        列出所有远程仓库
+    git remote -v
+        列出所有远程仓库
+    git remote add [shortname] [url]
+        指定一个名词指向远程仓库
+
+
