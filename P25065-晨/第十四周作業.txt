@@ -1,0 +1,28 @@
+写出以下操作的sql语句：
+1. 创建一个叫users的表包含username、age、sex字段
+2. 查询username为“张三”的一条纪录
+3. 查询age大于18且sex为“女“的所有纪录
+如何备份并还原上述表
+
+
+1. create table user (username VARCHAR(100),age INT,sex ENUM('M','F'));
+2. select * from user where username=“张三”;
+3. select * from user where age>18 and sex="F";
+
+用mysqldump工具備份database： mysqldump test > test.sql
+創建一個新的數據庫 create database new_test;
+導入： mysql new_test < test.sql
+以上方法不推薦。
+
+mysqldump -B test  (這個方法自動生成新的database，保留原數據庫的所有内容） 或者mysqldump -A 備份所有數據庫;
+
+mysqldump --master-data -B test > test.sql 這個方法用二進制日志記錄著在這個時候做的備份
+
+drop database test
+斷開網絡 禁止用戶訪問
+
+停用日志: set sql_log_bin=0  ； 導入mysql < test.sql
+
+進入到二進制目錄 /data/mysqlbinlog/,找到二進制文件還原備份后的二進制記錄 : mysqlbinlog --start-position=245 mysql-bin.000001 （假如從245記錄開始往後）
+然後需要把drop database test 的操作刪除再導入即可
+最後不要忘記把二進制日志設置開啓 set sql_log_bin=1
