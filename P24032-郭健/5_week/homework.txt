@@ -1,0 +1,44 @@
+1. 如何为函数定义keyword-only参数（写出个例子即可）？
+def fn(*,a,b,c):
+    pass
+
+2. 什么是LEGB，请解释
+	LEGB是变量名的解析原则,当使用一个变量的时候,会从内部往外找这个变量是在哪里定义的
+
+3. 二叉树的性质
+	性质1:在二叉树的第i层上至多有2^(i-1)个结点(i>=1)
+	性质2:深度为k的二叉树,至多有2^k-1个节点(k>=1)
+	性质3:对任何一棵二叉树T,如果其终端节点数为n0,度数为2的结点为n2,则有n0 = n2 + 1,换句话说,叶子结点数-1就等于度数为2的结点数
+	性质4:
+4. 使用本周学习的技术改造第二周的计算器实现，其目标如下：
+     1. 运行后提示让用户输入一个数字
+     2. 提示输入操作符（+ - * /）
+     3. 再次提示输入一个数字
+     4. 打印计算结果
+     5. 在不退出程序的前提下，可以允许用户继续输入新一组数据计
+     6. 尽可能改善用户体验（新需求） 
+
+
+```python
+def counter(a,op,b):
+    if op == '+':
+        return int(a) + int(b)
+    elif op == '-':
+        return int(a) - int(b)
+    elif op == '*':
+        return int(a) * int(b)
+    elif op == '/':
+        return int(a) / int(b)
+    else:
+        return 'wrong input'
+while True:
+    print('input <quit> in first number to quit.')
+    a=input('input a number: ')
+    if a=='quit':
+        print('bye bye...')
+        break
+    op=input('input opearter like +,-,*,%: ')
+    b=input('input second number: ')
+    print(counter(a,op,b))
+```
+
