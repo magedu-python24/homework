@@ -48,8 +48,8 @@ def alp_print():
 
 num_lock = threading.Lock()
 alp_lock = threading.Lock()
-num = threading.Thread(None, num_print)
-alp = threading.Thread(None, alp_print)
+num = threading.Thread(target=num_print)
+alp = threading.Thread(target=alp_print)
 num_lock.acquire()
 num.start()
 alp.start()
