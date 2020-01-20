@@ -51,8 +51,15 @@ systemctl start nginx
 systemctl enable nginx
 
 # 配置反向代理，在/etc/nginx/conf.d下新建proxy.conf,内容如下：
-location / {
-    proxy_pass   http://127.0.0.1:6666;
+# 先移除其它以配置文件，以免冲突： rm -rf /etc/nginx/conf.d/*.conf
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        proxy_pass   http://127.0.0.1:6666;
+    }
+
 }
 
 # 根据需要，可以为proxy配置其它内容，参见http://nginx.org/en/docs/http/ngx_http_proxy_module.html
