@@ -18,7 +18,7 @@ OS：centos 7 (x86_64位)
 
 1、在/etc/yum.repos.d/下建立nginx.repo文件，内容如下：
 
-```nginx
+```shell
 [nginx-stable]
 name=nginx stable repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
